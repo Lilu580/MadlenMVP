@@ -7,14 +7,12 @@ import Image, { StaticImageData } from "next/image";
 export const CategoryCard = ({
   title,
   image,
-  width,
-}: { title: string; image: StaticImageData; width: string }) => (
-  <div
-    className={`flex flex-col ${width} h-[350px] items-start gap-2.5 p-2 bg-white rounded-3xl overflow-hidden shadow-[0px_4px_28px_#59595914]`}
-  >
-    <div className="relative flex-1 w-full h-full">
+  className
+}: { title: string; image: StaticImageData; className: string }) => (
+
+    <div className={`relative flex-1 w-full h-[180px] sm:h-[260px] lg:h-[350px] ${className}`}>
       <Image
-        className="absolute inset-0 w-full h-full object-cover rounded-[20px]"
+        className=" w-full h-full rounded-[20px] object-cover object-top"
         alt={title}
         src={image}
       />
@@ -22,5 +20,4 @@ export const CategoryCard = ({
         {title}
       </h3>
     </div>
-  </div>
 );

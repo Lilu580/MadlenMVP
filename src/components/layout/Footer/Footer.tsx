@@ -1,90 +1,53 @@
-"use client";
+import Image from "next/image"
+export const Footer = () => {
+    return (
+        <footer className="w-full bg-white px-4 py-12 md:flex md:px-20">
+            <div className="grid grid-cols-2 grid-rows-2 md:grid-cols-8 md:grid-rows-1">
+                <div className="mr-16 md:col-span-3  md:col-start-1 md:row-start-1">
+                    <Image alt="Madlen Logo" src='/Logo.svg' width={112} height={40} className="mb-8"/>
+                    <p className="flex flex-col">
+                        <span className="mb-1">+380 67 665 23 22</span>
+                        <span className="mb-1">madlen@gmail.com</span>
+                        <span className="mb-1">м. Київ</span>
+                        <span className="mb-6">вул. Незалежності буд. 32</span>
+                    </p>
+                    <div className="flex gap-2">
+                        <a href="" className="bg-black w-8 h-8 rounded-lg flex items-center justify-center">
+                            <Image alt="Madlen Logo" src='/inst.svg' width={16} height={16}/>
+                        </a>
+                        <a href="" className="bg-black w-8 h-8 rounded-lg flex items-center justify-center">
+                            <Image alt="Madlen Logo" src='/inst.svg' width={16} height={16}/>
+                        </a>   
+                        <a href="" className="bg-black w-8 h-8 rounded-lg flex items-center justify-center">
+                            <Image alt="Madlen Logo" src='/inst.svg' width={16} height={16}/>
+                        </a>      
+                    </div>
+                </div>
+                <nav className="md:col-span-2 md:col-start-4 md:row-start-1 lg:flex lg:col-start-3 lg:col-span-3 lg:justify-between">
+                    <p className="flex flex-col ">
+                        <span className="mb-2 mt-5 md:mt-0">Каталог</span>
+                        <span className="mb-2">Новинки</span>
+                        <span className="mb-2">Категорії</span>
+                        <span className="mb-4">Контакти</span>
+                    </p>
+                    <p className="flex flex-col">
+                        <span className="mb-2">Політика конфіденційності</span>
+                        <span className="mb-2">Умови використання</span>
+                    </p>
 
-import React, {JSX} from "react";
-import x12 from "./1-2.svg";
-import iconoirArrowUp from "./iconoir-arrow-up.svg";
-import image from "./image.svg";
-import socialMedia2 from "./social-media-2.svg";
-import socialMedia from "./social-media.svg";
-import Image from "next/image";
-
-export const Footer = (): JSX.Element => {
-  return (
-    <footer className="w-full bg-white py-16">
-      <div className="max-w-screen-lg mx-auto flex flex-col items-center">
-        <div className="flex justify-between w-full">
-          <Image width={211} height={77} alt="Logo" src={x12} />
-
-          <nav className="flex space-x-16">
-            <ul className="space-y-2 text-sm font-medium text-dark">
-              <li>КАТАЛОГ</li>
-              <li>НОВИНКИ</li>
-              <li>КАТЕГОРІЇ</li>
-              <li>КОНТАКТИ</li>
-            </ul>
-
-            <ul className="space-y-2 text-sm font-medium text-dark">
-              <li>ПОЛІТИКА КОНФІДЕНЦІЙНОСТІ</li>
-              <li>УМОВИ ВИКОРИСТАННЯ</li>
-            </ul>
-          </nav>
-
-          <div className="w-[392px]">
-            <h3 className="text-sm font-medium text-dark">
-              БУДЬТЕ НА ЗВЯЗКУ
-            </h3>
-            <p className="text-sm text-[#1a1a18] opacity-70 mt-2">
-              Підпишіться на новини про наші останні надходження, ексклюзивні
-              акції та події
-            </p>
-            <div className="relative mt-3">
-              <input
-                type="email"
-                placeholder="Введіть ваш e-mail"
-                className="w-full p-4 border border-[#bfbfbf6b] rounded-[10px] text-sm text-[#1a1a18] opacity-60"
-              />
-              <button className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black p-3 rounded-lg">
-                <Image width={16} height={16} alt="Submit" src={iconoirArrowUp} />
-              </button>
+                </nav>
+                <div className="mt-6 md:mt-0 col-span-2 w-full row-start-2 md:row-start-1 md:col-start-6  md:col-span-3 lg:col-start-7">
+                    <h3>БУДЬТЕ НА ЗВ'ЯЗКУ</h3>
+                    <p className="text-primary-gray mt-4">Підпишіться на новини про наші останні надходження, ексклюзивні акції та події</p>
+                    <form className="mt-2 flex border border-border-input justify-between rounded-lg">
+                        <input type="email" placeholder="Введіть ваш e-mail" className="px-2 rounded-lg" />
+                        <button type="submit" className="bg-black w-8 h-8 rounded-lg flex items-center justify-center">
+                            <Image alt="Madlen Logo" src='/arrow_send.svg' width={32} height={32}/>
+                        </button>
+                    </form>
+                    <p className="w-full text-center mt-6 text-placeholder-gray md:mt-16 md:text-end">© 2025 All rights reserved.</p>
+                </div>
             </div>
-          </div>
-        </div>
-
-        <div className="flex justify-between w-full mt-10">
-          <div>
-            <p className="text-sm text-[#1a1a18]">+380 67 665 23 22</p>
-            <p className="text-sm text-[#1a1a18]">madlen@gmail.com</p>
-            <p className="text-sm text-[#1a1a18]">
-              м. Київ, вул. Незалежності буд. 32
-            </p>
-          </div>
-
-          <div className="flex space-x-2">
-            <a
-              href="#"
-              className="w-8 h-8 flex items-center justify-center bg-[#1a1a18] rounded-lg"
-            >
-              <Image width={16} height={16} alt="Social Media" src={socialMedia} />
-            </a>
-            <a
-              href="#"
-              className="w-8 h-8 flex items-center justify-center bg-[#1a1a18] rounded-lg"
-            >
-              <Image width={16} height={16} alt="Social Media" src={socialMedia2} />
-            </a>
-            <a
-              href="#"
-              className="w-8 h-8 flex items-center justify-center bg-[#1a1a18] rounded-lg"
-            >
-              <Image width={16} height={16} alt="Social Media" src={image} />
-            </a>
-          </div>
-        </div>
-
-        <p className="text-xs text-[#5c5f64] mt-10">
-          © 2025 All rights reserved.
-        </p>
-      </div>
-    </footer>
-  );
-};
+        </footer>
+    )
+}

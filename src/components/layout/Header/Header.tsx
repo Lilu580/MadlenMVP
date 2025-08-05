@@ -3,12 +3,15 @@
 import React, {JSX, useState} from "react";
 import Image from "next/image";
 import { Input } from "@/components/ui/Input";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 export const Header = (): JSX.Element => {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const menu = [
     {title: "Каталог", href: '/catalog'}, {title: "Новинки"}, {title: "Категорії"}, {title: "Контакти"}
   ]
+  const pathname = usePathname()
   return (
     <>
     <div></div>
@@ -23,13 +26,13 @@ export const Header = (): JSX.Element => {
             !isSearchOpen && (
               <nav className="hidden md:flex md:gap-4 lg:gap-9 md:mr-4">
             {menu.map((item) => (
-              <a
+              <Link 
                 key={item.title}
                 href={`${item.href}`}
-                className="text-lg font-normal text-dark font-['EB_Garamond-Regular']"
+                className={`text-lg font-normal text-dark font-['EB_Garamond-Regular']` + (pathname === item.href ? ' active' : '' )}
               >
                 {item.title}
-              </a>
+              </Link >
             ))}
           </nav>
             )

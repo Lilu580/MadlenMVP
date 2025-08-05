@@ -13,6 +13,10 @@ export default function Home() {
   return (
     <div className="bg-[#fffcf4] min-h-screen">
       <Suspense fallback={<LoadingSpinner />}>
+        <Banner/>
+      </Suspense> 
+
+      <Suspense fallback={<LoadingSpinner />}>
         <Products />
       </Suspense>
       

@@ -3,8 +3,9 @@ import { EB_Garamond } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import { Header } from "@/components/layout/Header/Header";
-import { Footer } from "@/components/layout/Footer";
-import { Banner } from "@/components/sections/Banner";
+import { Footer } from "@/components/layout/Footer/Footer";
+import { ModalProvider } from "@/providers/Modal";
+import ModalRenderer from "@/components/layout/Modal/ModalRender";
 
 const garamond = EB_Garamond({
   variable: "--font-garamond",
@@ -27,16 +28,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="font-garamond min-h-screen flex flex-col">
+      <body className="font-['EB_Garamond',serif] min-h-screen flex flex-col text-sm">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <div className="flex-grow">
-            <Header />
-            <Banner />
-            <main className="container mx-auto px-4 py-8">
-              {children}
-            </main>
-          </div>
-          <Footer />
+        <ModalProvider>
+           <ModalRenderer />
+            <div className="flex-grow">
+              <Header />
+              <main className="container mt-32 mx-auto px-4 py-8 max-w-[1440px]">
+                {children}
+              </main>
+            </div>
+            <Footer />
+          </ModalProvider>
         </ThemeProvider>
       </body>
     </html>

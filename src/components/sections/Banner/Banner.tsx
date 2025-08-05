@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import Image from 'next/image';
-import { BANNER_IMAGES, BANNER_CONFIG } from './constants';
+import { BANNER_IMAGES } from './constants';
 
 interface BannerProps {
     className?: string;
@@ -8,9 +8,16 @@ interface BannerProps {
 
 export const Banner: FC<BannerProps> = ({ className = '' }) => {
     return (
-        <section
+        <>
+        <div className='h-[760px]
+                sm:h-[420px]
+                md:h-[500px]
+                lg:h-[580px]
+                xl:h-[620px]
+                2xl:h-[660px]'>
+                    <section
             className={`
-                relative
+                absolute
                 mx-auto
                 max-w-[1440px]
                 h-[760px]
@@ -23,7 +30,11 @@ export const Banner: FC<BannerProps> = ({ className = '' }) => {
                 bg-banner-primary
                 text-banner-text
                 overflow-hidden
-                pt-20
+                left-0
+                right-0
+rounded-b-[10px]
+                pt-10
+
                 ${className}
             `}
         >
@@ -55,5 +66,10 @@ export const Banner: FC<BannerProps> = ({ className = '' }) => {
                 </button>
             </div>
         </section>
+
+        </div>
+        
+        </>
+        
     );
 };

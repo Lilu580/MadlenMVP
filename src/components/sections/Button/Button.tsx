@@ -15,7 +15,7 @@ export const Button: React.FC<ButtonProps> = ({
   onClick,
   type = 'button'
 }) => {
-  const baseStyles = "flex items-center justify-center px-6 py-1.5 rounded-[100px] transition-colors duration-200";
+  const baseStyles = "flex items-center justify-center px-6 py-1.5 rounded-[100px] transition-colors duration-200 font-[garamond]";
   const variantStyles = {
     primary: "bg-button-primary border-2 border-solid border-[#212529] text-button-text hover:bg-button-hover",
     secondary: "bg-button-secondary border-2 border-solid border-button-border text-button-text hover:bg-button-hover"

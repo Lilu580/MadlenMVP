@@ -5,7 +5,9 @@ module.exports = {
     extend: {
       colors: {
         "ligth100": "#FFF",
-        
+        "primary-gray": "#495057",
+        "border-input": "#CED4DA",
+        "placeholder-gray": "#868E96"
       }
     },
   },
