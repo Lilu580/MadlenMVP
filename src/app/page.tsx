@@ -11,15 +11,15 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <div className="bg-[#fffcf4] min-h-screen">
+    <div className="min-h-screen flex flex-col w-full">
       <Suspense fallback={<LoadingSpinner />}>
-        <Banner/>
-      </Suspense> 
+        <Banner />
+      </Suspense>
 
       <Suspense fallback={<LoadingSpinner />}>
         <Products />
       </Suspense>
-      
+
       <Suspense fallback={<LoadingSpinner />}>
         <Categories />
       </Suspense>
