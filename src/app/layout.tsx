@@ -3,10 +3,12 @@ import { EB_Garamond } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { cn } from "@/lib/utils";
 
 const garamond = EB_Garamond({
-  variable: "--font-garamond",
-  subsets: ["latin"],
+  subsets: ["cyrillic", "latin"],
+  weight: ["400", "500", "700"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -25,8 +27,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className="font-['EB_Garamond',serif] min-h-screen flex flex-col bg-background-project">
+    <html lang="en" suppressHydrationWarning className={garamond.className}>
+      <body className={cn("min-h-screen flex flex-col bg-white ")}>
         <Header />
         <main className="mx-auto max-w-8xl">{children}</main>
         <Footer />
