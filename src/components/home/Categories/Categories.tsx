@@ -5,7 +5,7 @@ import image2 from "./image-2.png";
 import image3 from "./image-3.png";
 import image4 from "./image-4.png";
 import image from "./image.png";
-import { CategoryCard } from "../CategoryCard/CategoryCard";
+import { CategoryCard } from "../CategoryCard";
 import { cn } from "@/lib/utils";
 
 export const Categories = () => {

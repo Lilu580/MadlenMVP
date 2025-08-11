@@ -14,13 +14,13 @@ const buttonVariants = cva(
         outline:
           "border border-black text-m-2 hover:bg-black hover:!text-white active:bg-transparent active:!text-gray-project-100 rounded-full px-4 lg:px-6 py-1 lg:py-3 disabled:!text-gray-project-40 disabled:!border-gray-project-40",
         secondary:
-          "bg-black !text-white border border-black hover:bg-gray-project-100/10 px-4 lg:px-6 py-1 lg:py-3 hover:!text-gray-project-100 active:bg-black active:!text-white active:shadow-xl disabled:opacity-40 rounded-full",
+          "bg-black !text-white border border-black hover:bg-gray-project-100/10 px-4 lg:px-6 py-1 lg:py-3 hover:!text-gray-project-100 hover:!fill-gray-project-100 hover:!stroke-gray-project-100 active:bg-black active:!text-white active:shadow-xl disabled:opacity-40 rounded-full",
         ghost: "rounded-full text-m-2",
         link: "text-gray-project-100 text-r-1 underline-offset-4 hover:underline",
       },
       size: {
         default: "",
-        icon: "!size-3 lg:!size-4 lg:p-6 p-[18px] rounded-full",
+        icon: "lg:p-3 p-2 rounded-full",
       },
     },
     defaultVariants: {

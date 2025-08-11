@@ -1,7 +1,7 @@
 import { Suspense } from "react";
-import { Banner } from "@/components/sections/Banner/Banner";
-import { Categories } from "@/components/sections/Categories/Categories";
-import { Products } from "@/components/sections/Recomends/Recomends";
+import { Banner } from "@/components/home/Banner/Banner";
+import { Categories } from "@/components/home/Categories/Categories";
+import { Products } from "@/components/home/Recomends/Recomends";
 import { LoadingSpinner } from "@/components/ui/LoadingSpinner";
 
 export const metadata = {

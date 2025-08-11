@@ -1,9 +1,9 @@
 "use client";
 
-import React, { JSX } from "react";
+import React from "react";
 import image from "./image.png";
 import property1Default from "./property-1-default.svg";
-import { RecomendationCart } from "../Article/RecomendationCart";
+import { CardProduct } from "../CardProduct";
 import { Button } from "@/components/ui/button";
 
 export const Products = () => {
@@ -17,12 +17,9 @@ export const Products = () => {
         <Button variant={"outline"}>Переглянути все</Button>
       </div>
 
-      <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+      <div className="flex flex-wrap justify-center gap-2 w-full">
         {products.map((product, index) => (
-          <RecomendationCart
-            key={`${product.name}-${index}`}
-            product={product}
-          />
+          <CardProduct key={`${product.name}-${index}`} product={product} />
         ))}
       </div>
     </section>
