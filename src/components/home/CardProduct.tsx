@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
-interface RecomendationCartProps {
+interface Props {
   product: {
     name: string;
     price: string;
@@ -12,7 +12,7 @@ interface RecomendationCartProps {
     frameSrc: string;
   };
 }
-export const CardProduct = ({ product }: RecomendationCartProps) => {
+export const CardProduct = ({ product }: Props) => {
   return (
     <Card className="p-2 border-0 bg-primary-project rounded-[12px] shadow-lg cursor-pointer gap-2">
       <div className="bg-white w-full rounded-[10px] overflow-hidden flex justify-center items-center">
