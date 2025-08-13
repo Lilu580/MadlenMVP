@@ -3,23 +3,14 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { ArrowDown, Filter, Sort } from "@/components/svg";
+import { ArrowDown, Sort } from "@/components/svg";
 import { cn } from "@/lib/utils";
 import React from "react";
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible";
-import Range from "@/components/ui/range";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 export const SortPage = () => {
   const [filter, setFilter] = React.useState(false);
-  const [price, setPrice] = React.useState(false);
-  const [material, setMaterial] = React.useState(false);
 
   return (
     <Popover open={filter} onOpenChange={setFilter}>
@@ -32,7 +23,7 @@ export const SortPage = () => {
           <div className={"p-2.5"}>
             <Sort size={24} color={"#0A0B0C"} />
           </div>
-          <p className={"text-m-1 text-gray-project-100"}>Фільтр</p>
+          <p className={"text-m-1 text-gray-project-100"}>Сортування</p>
         </div>
         <div className={"p-2.5"}>
           <ArrowDown

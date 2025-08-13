@@ -28,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className={garamond.className}>
-      <body className={cn("min-h-screen flex flex-col bg-white ")}>
+      <body className={cn("min-h-screen flex flex-col bg-white")}>
         <HeaderMainSearch>{children}</HeaderMainSearch>
         <Footer />
       </body>
