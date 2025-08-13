@@ -6,6 +6,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { useSearchParams } from "next/navigation";
 import { CardProduct } from "@/components/home/CardProduct";
 import { SkeletonProduct } from "@/components/layout/SkeletonProduct";
+import { CardMain } from "@/components/layout/CardMain";
 
 interface Props {
   children: React.ReactNode;
@@ -21,7 +22,7 @@ export const HeaderMainSearch = ({ children }: Props) => {
       <Header setLoading={setLoading} setProducts={setProducts} />
       <main className="mx-auto max-w-8xl w-full">
         {loading ? (
-          <CardMain>
+          <CardMain className={"md:mt-10 lg:mt-[60px] mt-10"}>
             <Skeleton className={"h-[43px] w-full"} />
             <div className={"flex flex-wrap gap-4"}>
               {"01234567".split("").map((item) => (
@@ -32,7 +33,7 @@ export const HeaderMainSearch = ({ children }: Props) => {
         ) : products.length === 0 ? (
           children
         ) : (
-          <CardMain>
+          <CardMain className={"md:mt-10 lg:mt-[60px] mt-10"}>
             <div className={"flex w-full items-center justify-between"}>
               <h2 className={"header-2 text-gray-project-90"}>
                 Результат пошуку «{searchParams.get("search")}»
@@ -50,17 +51,5 @@ export const HeaderMainSearch = ({ children }: Props) => {
         )}
       </main>
     </>
-  );
-};
-
-const CardMain = ({ children }: Props) => {
-  return (
-    <div
-      className={
-        "flex w-full flex-col min-h-screen max-w-8xl px-4 md:px-20 lg:px-[112px] gap-12 md:pt-[123px] lg:pt-[175px] pt-[105px]"
-      }
-    >
-      {children}
-    </div>
   );
 };
