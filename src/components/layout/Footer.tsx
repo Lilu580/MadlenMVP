@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
+import { ArrowRight, Facebook, Instagram, TikTok } from "@/components/svg";
 
 export const Footer = () => {
   const router = useRouter();
@@ -31,34 +32,19 @@ export const Footer = () => {
             <div className="flex gap-2">
               <Button className={"!p-2"} asChild>
                 <a href="">
-                  <Image
-                    alt="Madlen Logo"
-                    src="/inst.svg"
-                    width={16}
-                    height={16}
-                  />
+                  <Instagram color={"white"} />
                 </a>
               </Button>
 
               <Button className={"!p-2"} asChild>
                 <a href="">
-                  <Image
-                    alt="Madlen Logo"
-                    src="/inst.svg"
-                    width={16}
-                    height={16}
-                  />
+                  <Facebook color={"white"} />
                 </a>
               </Button>
 
               <Button className={"!p-2"} asChild>
                 <a href="">
-                  <Image
-                    alt="Madlen Logo"
-                    src="/inst.svg"
-                    width={16}
-                    height={16}
-                  />
+                  <TikTok color={"white"} />
                 </a>
               </Button>
             </div>
@@ -107,12 +93,7 @@ export const Footer = () => {
                 type="submit"
                 className={"absolute right-0 top-0 !p-3 lg:!p-5"}
               >
-                <Image
-                  alt="Madlen Logo"
-                  src="/arrow_send.svg"
-                  width={18}
-                  height={18}
-                />
+                <ArrowRight size={18} color={"white"} />
               </Button>
             </form>
           </div>

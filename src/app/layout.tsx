@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { EB_Garamond } from "next/font/google";
 import "./globals.css";
-import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { cn } from "@/lib/utils";
+import { HeaderMainSearch } from "@/components/layout/HeaderMainSearch";
 
 const garamond = EB_Garamond({
   subsets: ["cyrillic", "latin"],
@@ -29,8 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={garamond.className}>
       <body className={cn("min-h-screen flex flex-col bg-white ")}>
-        <Header />
-        <main className="mx-auto max-w-8xl">{children}</main>
+        <HeaderMainSearch>{children}</HeaderMainSearch>
         <Footer />
       </body>
     </html>

@@ -2,22 +2,28 @@ import React from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { TProduct } from "@/lib/types";
+import { cn } from "@/lib/utils";
+import { Basket } from "@/components/svg";
 
 interface Props {
-  product: {
-    name: string;
-    price: string;
-    oldPrice: string;
-    imageSrc: string;
-    frameSrc: string;
-  };
+  product: TProduct;
+  size?: "sm" | "xs";
 }
-export const CardProduct = ({ product }: Props) => {
+
+export const CardProduct = ({ product, size = "sm" }: Props) => {
   return (
     <Card className="p-2 border-0 bg-primary-project rounded-[12px] shadow-lg cursor-pointer gap-2">
-      <div className="bg-white w-full rounded-[10px] overflow-hidden flex justify-center items-center">
+      <div className="w-full rounded-[10px] overflow-hidden flex justify-center items-center">
         <Image
-          className="w-full h-[214px] lg:h-[264px] object-cover object-top"
+          width={160}
+          height={214}
+          className={cn("object-cover object-top", {
+            ["h-[214px] w-[160px] md:h-[214px] md:w-[132px] lg:h-[264px] lg:w-[211px]"]:
+              size === "sm",
+            ["h-[358px] w-[335px] md:h-[343px] md:w-[184px] lg:h-[362px] lg:w-[276px]"]:
+              size === "xs",
+          })}
           alt={product.name}
           src={product.imageSrc}
         />
@@ -36,13 +42,7 @@ export const CardProduct = ({ product }: Props) => {
           </div>
         </div>
         <Button variant={"secondary"} size={"icon"}>
-          <Image
-            width={20}
-            height={20}
-            alt="Frame"
-            className={"lg:h-5 lg:w-5 w-3 h-3"}
-            src={product.frameSrc}
-          />
+          <Basket size={20} className={"lg:h-5 lg:w-5 w-3 h-3 "} />
         </Button>
       </div>
     </Card>

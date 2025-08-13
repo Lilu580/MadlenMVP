@@ -1,12 +1,12 @@
 import Image from "next/image";
-import { BANNER_IMAGES } from "./constants";
 import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 
 interface Props {
-  className?: string;
+  isLoading?: boolean;
 }
 
-export const Banner = ({}: Props) => {
+export const Banner = ({ isLoading }: Props) => {
   return (
     <section
       className={
@@ -14,20 +14,28 @@ export const Banner = ({}: Props) => {
       }
     >
       <div className={"w-full h-full relative"}>
-        <Image
-          src={BANNER_IMAGES.first}
-          alt="Banner image 1"
-          className="w-full h-full flex-1 flex object-cover object-top transition-transform duration-300 hover:scale-105"
-          fill
-        />
+        {isLoading ? (
+          <Skeleton className={"w-full h-full rounded-none"} />
+        ) : (
+          <Image
+            src={"/Banner1.png"}
+            alt="Banner image 1"
+            className="w-full h-full flex-1 flex object-cover object-top transition-transform duration-300 hover:scale-105"
+            fill
+          />
+        )}
       </div>
       <div className={"w-full h-full relative"}>
-        <Image
-          fill
-          src={BANNER_IMAGES.second}
-          alt="Banner image 2"
-          className="w-full h-full flex-1 flex object-cover object-top transition-transform duration-300 hover:scale-105"
-        />
+        {isLoading ? (
+          <Skeleton className={"w-full h-full rounded-none"} />
+        ) : (
+          <Image
+            fill
+            src={"/Banner2.png"}
+            alt="Banner image 2"
+            className="w-full h-full flex-1 flex object-cover object-top transition-transform duration-300 hover:scale-105"
+          />
+        )}
       </div>
       {/* Overlay text and button */}
       <div className="absolute border top-0 md:top-auto md:bottom-0 left-0 w-full h-full px-4 flex flex-col items-start md:items-center justify-start md:justify-end gap-7 pt-[423px] md:pt-0 pb-0 lg:pb-[140px] md:pb-[60px]">

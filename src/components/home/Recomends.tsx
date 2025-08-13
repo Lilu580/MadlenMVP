@@ -1,12 +1,15 @@
 "use client";
 
 import React from "react";
-import image from "./image.png";
-import property1Default from "./property-1-default.svg";
-import { CardProduct } from "../CardProduct";
+import { CardProduct } from "./CardProduct";
 import { Button } from "@/components/ui/button";
+import { SkeletonProduct } from "@/components/layout/SkeletonProduct";
 
-export const Products = () => {
+interface Props {
+  isLoading?: boolean;
+}
+
+export const Recommends = ({ isLoading }: Props) => {
   return (
     <section
       id={"products"}
@@ -18,9 +21,11 @@ export const Products = () => {
       </div>
 
       <div className="flex flex-wrap justify-center gap-2 w-full">
-        {products.map((product, index) => (
-          <CardProduct key={`${product.name}-${index}`} product={product} />
-        ))}
+        {isLoading
+          ? "0123".split("").map((_, index) => <SkeletonProduct key={index} />)
+          : products.map((product, index) => (
+              <CardProduct key={`${product.name}-${index}`} product={product} />
+            ))}
       </div>
     </section>
   );
@@ -30,6 +35,5 @@ const products = Array(4).fill({
   name: "Назва товару",
   price: "1 000,00 грн",
   oldPrice: "1 000,00 грн",
-  imageSrc: image,
-  frameSrc: property1Default,
+  imageSrc: "/recommend-1.png",
 });

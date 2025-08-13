@@ -6,7 +6,7 @@ import { usePathname, useRouter } from "next/navigation";
 
 interface Props {
   children?: React.ReactNode;
-  onClick?: () => void;
+  onClick?: (route?: string) => void;
 }
 
 export const NavWrapper = ({ children, onClick }: Props) => {
@@ -20,7 +20,9 @@ export const NavWrapper = ({ children, onClick }: Props) => {
         variant={"link"}
         onClick={() => {
           router.push("/catalog");
-          onClick && onClick();
+          if (onClick) {
+            onClick("/catalog");
+          }
         }}
       >
         Каталог
@@ -36,7 +38,9 @@ export const NavWrapper = ({ children, onClick }: Props) => {
           } else {
             router.push("/");
           }
-          onClick && onClick();
+          if (onClick) {
+            onClick();
+          }
         }}
       >
         Новинки
@@ -53,7 +57,9 @@ export const NavWrapper = ({ children, onClick }: Props) => {
           } else {
             router.push("/");
           }
-          onClick && onClick();
+          if (onClick) {
+            onClick();
+          }
         }}
       >
         Контакти

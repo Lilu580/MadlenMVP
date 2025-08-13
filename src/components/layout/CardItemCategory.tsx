@@ -1,12 +1,12 @@
 "use client";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import React from "react";
 import { cn } from "@/lib/utils";
 
 interface Props {
   title: string;
-  image: StaticImageData;
+  image: string;
   className?: string;
 }
 
