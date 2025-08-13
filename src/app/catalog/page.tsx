@@ -25,7 +25,7 @@ import { SortPage } from "@/components/catalog/SortPage";
 
 export default function Page(): JSX.Element {
   return (
-    <CardMain className="lg:mt-8 gap-16">
+    <CardMain className="mt-6 lg:mt-8 md:gap-11 lg:gap-16">
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
@@ -42,17 +42,29 @@ export default function Page(): JSX.Element {
         </BreadcrumbList>
       </Breadcrumb>
       <div className={"flex flex-col w-full gap-[30px]"}>
-        <div className={"flex w-full items-center justify-between"}>
-          <div className={"flex items-center justify-center gap-6"}>
+        <div
+          className={"flex w-full items-end md:items-center justify-between"}
+        >
+          <div
+            className={
+              "flex md:flex-row flex-col-reverse items-start md:items-center justify-center gap-6"
+            }
+          >
             <FilterPage />
-            <h2 className={"header-2 text-gray-project-100 uppercase"}>
+            <h2
+              className={
+                "header-2 md:text-[26px] text-gray-project-100 uppercase"
+              }
+            >
               Костюми
             </h2>
           </div>
           <SortPage />
         </div>
         <div className={"flex flex-col gap-10 w-full"}>
-          <div className={"flex flex-wrap gap-4"}>
+          <div
+            className={"flex flex-wrap gap-x-4 gap-y-6 md:gap-y-8 lg:gap-y-10 "}
+          >
             {products.map((item, index) => (
               <CardProduct key={index} product={item} size={"xs"} />
             ))}

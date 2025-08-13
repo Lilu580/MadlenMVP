@@ -16,7 +16,7 @@ export const SortPage = () => {
     <Popover open={filter} onOpenChange={setFilter}>
       <PopoverTrigger
         className={
-          "flex items-center justify-between w-[220px] h-[32px] px-2 cursor-pointer"
+          "flex items-center justify-between w-[156px] lg:w-[220px] h-[52px] md:px-1 lg:px-2 cursor-pointer"
         }
       >
         <div className={"flex items-center justify-center gap-2"}>
@@ -35,7 +35,7 @@ export const SortPage = () => {
       </PopoverTrigger>
       <PopoverContent
         className={
-          "max-w-[220px] border-none rounded-2xl shadow-xs p-4 gap-2 flex flex-col"
+          "max-w-[156px] lg:max-w-[220px] border-none rounded-2xl shadow-xs p-4 gap-2 flex flex-col"
         }
       >
         <RadioGroup defaultValue="comfortable">

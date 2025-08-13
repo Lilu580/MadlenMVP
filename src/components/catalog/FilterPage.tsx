@@ -24,7 +24,7 @@ export const FilterPage = () => {
     <Popover open={filter} onOpenChange={setFilter}>
       <PopoverTrigger
         className={
-          "flex items-center justify-between bg-primary-project w-[236px] h-[64px] rounded-xl px-2 cursor-pointer"
+          "hidden md:flex items-center justify-between bg-primary-project w-[168px] md:w-[156px] lg:w-[236px] h-[52px] lg:h-[64px] rounded-xl md:px-1 lg:px-2 cursor-pointer"
         }
       >
         <div className={"flex items-center justify-center gap-2"}>
@@ -43,7 +43,7 @@ export const FilterPage = () => {
       </PopoverTrigger>
       <PopoverContent
         className={
-          "max-w-[236px] -mt-3 !rounded-t-none border-none bg-primary-project rounded-b-2xl shadow-xs p-2 gap-2 flex flex-col"
+          "max-w-none w-screen md:w-full h-screen md:h-auto md:max-w-[156px] lg:max-w-[236px] -mt-3 !rounded-t-none border-none bg-primary-project rounded-b-2xl shadow-xs p-2 gap-2 flex flex-col"
         }
       >
         <Collapsible
