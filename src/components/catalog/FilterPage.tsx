@@ -11,10 +11,14 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
-import { Button } from "@/components/ui/button";
+import Range from "@/components/ui/range";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
 
 export const FilterPage = () => {
   const [filter, setFilter] = React.useState(false);
+  const [price, setPrice] = React.useState(true);
+  const [material, setMaterial] = React.useState(true);
 
   return (
     <Popover open={filter} onOpenChange={setFilter}>
@@ -25,7 +29,7 @@ export const FilterPage = () => {
       >
         <div className={"flex items-center justify-center gap-2"}>
           <div className={"p-2.5"}>
-            <Filter size={16} color={"black"} />
+            <Filter size={16} color={"#0A0B0C"} />
           </div>
           <p className={"text-m-1 text-gray-project-100"}>Фільтр</p>
         </div>
@@ -42,7 +46,11 @@ export const FilterPage = () => {
           "max-w-[236px] -mt-3 !rounded-t-none border-none bg-primary-project rounded-b-2xl shadow-xs p-2 gap-2 flex flex-col"
         }
       >
-        <Collapsible className="flex w-full flex-col gap-2">
+        <Collapsible
+          onOpenChange={setPrice}
+          open={price}
+          className="flex w-full flex-col gap-2"
+        >
           <div
             className={
               "flex flex-col gap-5 p-2 border rounded-lg border-gray-project-20"
@@ -50,19 +58,69 @@ export const FilterPage = () => {
           >
             <CollapsibleTrigger className="w-full flex items-center justify-between gap-2">
               <p className="text-sm font-semibold">Ціна</p>
-              <ArrowDown size={12} className={"rotate-90"} color={"#495057"} />
+              <ArrowDown
+                size={12}
+                className={cn(
+                  "transition-all duration-300",
+                  price ? "rotate-270" : "rotate-90",
+                )}
+                color={"#495057"}
+              />
             </CollapsibleTrigger>
             <CollapsibleContent className="flex flex-col gap-2">
-              <div className="rounded-md border px-4 py-2 font-mono text-sm">
-                @radix-ui/colors
+              <Range />
+            </CollapsibleContent>
+          </div>
+        </Collapsible>
+        <Collapsible
+          onOpenChange={setMaterial}
+          open={material}
+          className="flex w-full flex-col gap-2"
+        >
+          <div
+            className={
+              "flex flex-col gap-5 p-2 border rounded-lg border-gray-project-20"
+            }
+          >
+            <CollapsibleTrigger className="w-full flex items-center justify-between gap-2">
+              <p className="text-sm font-semibold">Матеріал</p>
+              <ArrowDown
+                size={12}
+                className={cn(
+                  "transition-all duration-300",
+                  material ? "rotate-270" : "rotate-90",
+                )}
+                color={"#495057"}
+              />
+            </CollapsibleTrigger>
+            <CollapsibleContent className="flex flex-col gap-3">
+              <div className={"flex gap-2"}>
+                <Checkbox />
+                <Label className={"text-r-2 text-gray-project-90"}>
+                  Джинси
+                </Label>
               </div>
-              <div className="rounded-md border px-4 py-2 font-mono text-sm">
-                @stitches/react
+              <div className={"flex gap-2"}>
+                <Checkbox />
+                <Label className={"text-r-2 text-gray-project-90"}>
+                  Хлопок
+                </Label>
+              </div>
+              <div className={"flex gap-2"}>
+                <Checkbox />
+                <Label className={"text-r-2 text-gray-project-90"}>
+                  Бавовна
+                </Label>
+              </div>
+              <div className={"flex gap-2"}>
+                <Checkbox />
+                <Label className={"text-r-2 text-gray-project-90"}>
+                  Еластан
+                </Label>
               </div>
             </CollapsibleContent>
           </div>
         </Collapsible>
-        <div className={"border w-full"}></div>
       </PopoverContent>
     </Popover>
   );

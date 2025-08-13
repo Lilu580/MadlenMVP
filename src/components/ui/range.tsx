@@ -3,11 +3,10 @@
 import * as React from "react";
 import { Slider } from "@/components/ui/slider";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 
 type Range = [number, number];
 
-export default function PriceRange({
+export default function Range({
   min = 0,
   max = 10000,
   step = 50,
@@ -42,36 +41,7 @@ export default function PriceRange({
   };
 
   return (
-    <div className="w-full max-w-xl space-y-4">
-      <div className="flex items-end gap-3">
-        <div className="flex-1 space-y-1">
-          <Label htmlFor="min">Мінімум</Label>
-          <Input
-            id="min"
-            type="number"
-            inputMode="numeric"
-            value={range[0]}
-            min={min}
-            max={range[1]}
-            step={step}
-            onChange={(e) => setMin(e.target.value)}
-          />
-        </div>
-        <div className="flex-1 space-y-1">
-          <Label htmlFor="max">Максимум</Label>
-          <Input
-            id="max"
-            type="number"
-            inputMode="numeric"
-            value={range[1]}
-            min={range[0]}
-            max={max}
-            step={step}
-            onChange={(e) => setMax(e.target.value)}
-          />
-        </div>
-      </div>
-
+    <div className="w-full max-w-xl flex flex-col gap-4">
       <Slider
         // два «ползунка» — два значения
         value={range}
@@ -83,9 +53,33 @@ export default function PriceRange({
         minStepsBetweenThumbs={1}
         className="py-4"
       />
-
-      <div className="text-sm text-muted-foreground">
-        Обраний діапазон: {range[0]} – {range[1]}
+      <div className="flex items-center gap-2">
+        <div className="flex-1 space-y-1">
+          <Input
+            id="min"
+            type="number"
+            inputMode="numeric"
+            value={range[0]}
+            min={min}
+            max={range[1]}
+            step={step}
+            className={"!p-1 text-center"}
+            onChange={(e) => setMin(e.target.value)}
+          />
+        </div>
+        <div className="flex-1 space-y-1">
+          <Input
+            id="max"
+            type="number"
+            inputMode="numeric"
+            value={range[1]}
+            min={range[0]}
+            max={max}
+            step={step}
+            className={"!p-1 text-center"}
+            onChange={(e) => setMax(e.target.value)}
+          />
+        </div>
       </div>
     </div>
   );

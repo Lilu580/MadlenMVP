@@ -21,6 +21,7 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 import { FilterPage } from "@/components/catalog/FilterPage";
+import { SortPage } from "@/components/catalog/SortPage";
 
 export default function Page(): JSX.Element {
   return (
@@ -48,6 +49,7 @@ export default function Page(): JSX.Element {
               Костюми
             </h2>
           </div>
+          <SortPage />
         </div>
         <div className={"flex flex-col gap-10 w-full"}>
           <div className={"flex flex-wrap gap-4"}>
