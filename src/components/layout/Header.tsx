@@ -116,7 +116,7 @@ export const Header = ({ setProducts, setLoading }: Props): JSX.Element => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 w-full flex items-start justify-center z-50">
+      <header className="fixed top-0 left-0 right-0 w-full flex items-start justify-center z-40">
         <div className="max-w-8xl h-[65px] md:h-[83px] lg:h-[116px] flex gap-4 w-full items-center justify-between px-4 md:px-20 lg:px-[112px] rounded-b-4xl bg-white">
           <div
             className={cn("flex gap-2 items-center", {

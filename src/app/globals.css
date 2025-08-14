@@ -4,18 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Banner colors */
-  --banner-primary: #fffcf4;
-  --banner-secondary: #f5f5f5;
-  --banner-accent: #e6e6e6;
-  --banner-text: #333333;
-
   /* Button colors */
-  --button-primary: #ffffff;
-  --button-secondary: #f8f9fa;
-  --button-border: #212529;
-  --button-text: #212529;
-  --button-hover: #f8f9fa;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.13 0.028 261.692);
@@ -61,37 +50,7 @@
   --gray-project-80: hsla(210, 9%, 31%, 1);
   --gray-project-90: hsla(210, 11%, 15%, 1);
   --gray-project-100: hsla(210, 9%, 4%, 1);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* Dark mode banner colors */
-    --banner-primary: #1a1a1a;
-    --banner-secondary: #2d2d2d;
-    --banner-accent: #404040;
-    --banner-text: #e6e6e6;
-
-    /* Dark mode button colors */
-    --button-primary: #212529;
-    --button-secondary: #343a40;
-    --button-border: #212529;
-    --button-text: #f8f9fa;
-    --button-hover: #343a40;
-  }
-}
-
-.active {
-  position: relative;
-}
-
-.active::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 1px;
-  bottom: 0;
-  background-color: #0a0a0a;
+  --red-project-50: hsla(0, 100%, 55%, 1);
 }
 
 @theme inline {
@@ -142,6 +101,7 @@
   --color-gray-project-80: var(--gray-project-80);
   --color-gray-project-90: var(--gray-project-90);
   --color-gray-project-100: var(--gray-project-100);
+  --color-red-project-50: var(--red-project-50);
 
   --container-8xl: 1440px;
 }
@@ -187,6 +147,24 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Убираем стрелки в Firefox */
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+
+  input[type="search"]::-webkit-search-decoration,
+  input[type="search"]::-webkit-search-cancel-button,
+  input[type="search"]::-webkit-search-results-button,
+  input[type="search"]::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+  }
 }
 
 /* globals.css */
@@ -225,7 +203,6 @@
   .header-4 {
     font-family: 'EB Garamond', serif;
     font-weight: 500;
-    line-height: 0;
     letter-spacing: 0;
 
     font-size: 18px;

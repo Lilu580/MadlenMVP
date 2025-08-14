@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -5,6 +7,7 @@ import { Card } from "@/components/ui/card";
 import { TProduct } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { Basket } from "@/components/svg";
+import { useRouter } from "next/navigation";
 
 interface Props {
   product: TProduct;
@@ -12,8 +15,13 @@ interface Props {
 }
 
 export const CardProduct = ({ product, size = "sm" }: Props) => {
+  const router = useRouter();
+
   return (
-    <Card className="p-2 border-0 bg-primary-project rounded-[12px] shadow-lg cursor-pointer gap-2 hover:bg-gray-project-40">
+    <Card
+      onClick={() => router.push("/catalog/jeans/1")}
+      className="p-2 border-0 bg-primary-project rounded-[12px] shadow-lg cursor-pointer gap-2 hover:bg-gray-project-40"
+    >
       <div className="w-full rounded-[10px] overflow-hidden flex justify-center items-center">
         <Image
           width={160}

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { JSX, useCallback, useEffect, useRef } from "react";
+import React, { JSX, useCallback, useEffect, useRef, useState } from "react";
 import { CardMain } from "@/components/layout/CardMain";
 import {
   Breadcrumb,
@@ -26,10 +26,10 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { SkeletonProduct } from "@/components/layout/SkeletonProduct";
 
 export default function Page(): JSX.Element {
-  const [price, setPrice] = React.useState<[number, number]>([0, 3000]);
-  const [material, setMaterial] = React.useState<string[]>([]);
-  const [sort, setSort] = React.useState<string>("growth");
-  const [loading, setLoading] = React.useState(false);
+  const [price, setPrice] = useState<[number, number]>([0, 3000]);
+  const [material, setMaterial] = useState<string[]>([]);
+  const [sort, setSort] = useState<string>("growth");
+  const [loading, setLoading] = useState(false);
 
   const refSearch = useRef<NodeJS.Timeout | undefined>(undefined);
 
@@ -37,7 +37,7 @@ export default function Page(): JSX.Element {
   const searchParams = useSearchParams();
   const router = useRouter();
 
-  const handleFilter = React.useCallback(
+  const handleFilter = useCallback(
     ({
       price,
       material,
@@ -98,7 +98,7 @@ export default function Page(): JSX.Element {
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
-            <BreadcrumbLink href="/">Головна</BreadcrumbLink>
+            <BreadcrumbLink href="/public">Головна</BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>

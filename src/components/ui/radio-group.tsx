@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
-import { CircleIcon } from "lucide-react";
+import { Check, CircleIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
@@ -21,8 +21,11 @@ function RadioGroup({
 
 function RadioGroupItem({
   className,
+  isCheck,
   ...props
-}: React.ComponentProps<typeof RadioGroupPrimitive.Item>) {
+}: React.ComponentProps<typeof RadioGroupPrimitive.Item> & {
+  isCheck?: boolean;
+}) {
   return (
     <RadioGroupPrimitive.Item
       data-slot="radio-group-item"
@@ -36,7 +39,11 @@ function RadioGroupItem({
         data-slot="radio-group-indicator"
         className="relative flex items-center justify-center"
       >
-        <CircleIcon className="fill-gray-project-90 absolute top-1/2 left-1/2 size-4 -translate-x-1/2 -translate-y-1/2" />
+        {isCheck ? (
+          <Check className="stroke-white absolute top-1/2 left-1/2 size-5 -translate-x-1/2 -translate-y-1/2" />
+        ) : (
+          <CircleIcon className="fill-gray-project-90 absolute top-1/2 left-1/2 size-4 -translate-x-1/2 -translate-y-1/2" />
+        )}
       </RadioGroupPrimitive.Indicator>
     </RadioGroupPrimitive.Item>
   );
