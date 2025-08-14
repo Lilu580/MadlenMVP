@@ -239,7 +239,7 @@
     letter-spacing: 0;
 
     font-size: 16px;
-    @apply sm:text-[17px] md:text-[18px];
+    @apply lg:text-[18px];
   }
 
   .text-m-1 {
@@ -249,7 +249,7 @@
     letter-spacing: 0;
 
     font-size: 16px;
-    @apply sm:text-[17px] md:text-[18px];
+    @apply lg:text-[18px];
   }
 
   .text-r-2 {

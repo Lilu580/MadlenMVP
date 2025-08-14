@@ -51,10 +51,10 @@ export default function Range({
         step={step}
         // минимальный зазор между ползунками в шагах (опционально)
         minStepsBetweenThumbs={1}
-        className="py-4"
+        className="py-2"
       />
-      <div className="flex items-center gap-2">
-        <div className="flex-1 space-y-1">
+      <div className="flex lg:flex-row md:flex-col items-center gap-1 md:gap-2">
+        <div className="flex-1 w-full">
           <Input
             id="min"
             type="number"
@@ -63,11 +63,11 @@ export default function Range({
             min={min}
             max={range[1]}
             step={step}
-            className={"!p-1 text-center"}
+            className={"md:!p-1 text-center rounded-lg"}
             onChange={(e) => setMin(e.target.value)}
           />
         </div>
-        <div className="flex-1 space-y-1">
+        <div className="flex-1 w-full">
           <Input
             id="max"
             type="number"
@@ -76,7 +76,7 @@ export default function Range({
             min={range[0]}
             max={max}
             step={step}
-            className={"!p-1 text-center"}
+            className={"md:!p-1 text-center rounded-lg"}
             onChange={(e) => setMax(e.target.value)}
           />
         </div>

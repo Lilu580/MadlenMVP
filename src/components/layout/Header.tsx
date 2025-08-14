@@ -129,7 +129,7 @@ export const Header = ({ setProducts, setLoading }: Props): JSX.Element => {
               </DialogTrigger>
               <DialogContent
                 className={
-                  "w-screen h-screen sm:max-w-screen max-w-screen rounded-b-3xl rounded-t-none px-4 py-8 md:hidden"
+                  "w-screen h-screen sm:max-w-screen max-w-screen rounded-b-3xl rounded-t-none px-4 py-8 md:hidden overflow-y-auto"
                 }
               >
                 <DialogHeader className={"hidden"}>

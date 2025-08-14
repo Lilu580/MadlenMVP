@@ -13,7 +13,7 @@ interface Props {
 
 export const CardProduct = ({ product, size = "sm" }: Props) => {
   return (
-    <Card className="p-2 border-0 bg-primary-project rounded-[12px] shadow-lg cursor-pointer gap-2">
+    <Card className="p-2 border-0 bg-primary-project rounded-[12px] shadow-lg cursor-pointer gap-2 hover:bg-gray-project-40">
       <div className="w-full rounded-[10px] overflow-hidden flex justify-center items-center">
         <Image
           width={160}
