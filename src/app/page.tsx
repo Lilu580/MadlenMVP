@@ -1,8 +1,7 @@
 import { Suspense } from "react";
-import { Banner } from "@/components/sections/Banner/Banner";
-import { Categories } from "@/components/sections/Categories/Categories";
-import { Products } from "@/components/sections/Recomends/Recomends";
-import { LoadingSpinner } from "@/components/ui/LoadingSpinner";
+import { Banner } from "@/components/home/Banner";
+import { Categories } from "@/components/home/Categories";
+import { Recommends } from "@/components/home/Recomends";
 
 export const metadata = {
   title: "Home | Madlen",
@@ -11,16 +10,16 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <div className="bg-[#fffcf4] min-h-screen">
-      <Suspense fallback={<LoadingSpinner />}>
-        <Banner/>
-      </Suspense> 
-
-      <Suspense fallback={<LoadingSpinner />}>
-        <Products />
+    <div className="min-h-screen flex flex-col w-full">
+      <Suspense fallback={<Banner isLoading />}>
+        <Banner />
       </Suspense>
-      
-      <Suspense fallback={<LoadingSpinner />}>
+
+      <Suspense fallback={<Recommends isLoading />}>
+        <Recommends />
+      </Suspense>
+
+      <Suspense fallback={<Categories isLoading />}>
         <Categories />
       </Suspense>
     </div>
