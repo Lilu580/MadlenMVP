@@ -40,7 +40,7 @@ export const FilterPage = (props: Props) => {
           <FilterButton filter={filter} />
         </PopoverTrigger>
         <PopoverContent
-          sideOffset={0}
+          sideOffset={-10}
           className={
             "hidden md:flex max-w-none md:max-w-[156px] lg:max-w-[236px] !rounded-t-none border-none bg-primary-project rounded-b-2xl shadow-xs p-2 gap-2 flex-col"
           }
@@ -54,20 +54,19 @@ export const FilterPage = (props: Props) => {
         </DialogTrigger>
         <DialogContent
           className={
-            "bg-primary-project max-w-none w-screen h-screen m-0 rounded-t-2xl rounded-b-none items-start flex flex-col gap-6 p-4 sm:max-w-none"
+            "bg-primary-project w-screen h-screen max-w-none m-0 rounded-t-[16px] rounded-b-none items-start flex flex-col gap-6 md:hidden"
           }
         >
-          <DialogHeader>
-            <DialogTitle>
-              <div className={"flex items-center justify-center gap-2"}>
-                <div className={"p-2.5"}>
-                  <Filter size={16} color={"#0A0B0C"} />
-                </div>
-                <p className={"text-m-1 text-gray-project-100"}>Фільтр</p>
-              </div>
-            </DialogTitle>
-            <DialogDescription hidden></DialogDescription>
+          <DialogHeader hidden>
+            <DialogTitle />
+            <DialogDescription />
           </DialogHeader>
+          <div className={"flex items-center justify-center gap-2"}>
+            <div className={"p-2.5"}>
+              <Filter size={16} color={"#0A0B0C"} />
+            </div>
+            <p className={"text-m-1 text-gray-project-100"}>Фільтр</p>
+          </div>
           <FilterContent {...props} />
         </DialogContent>
       </Dialog>

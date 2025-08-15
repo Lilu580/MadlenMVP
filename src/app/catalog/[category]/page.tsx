@@ -24,6 +24,7 @@ import { FilterPage } from "@/components/catalog/FilterPage";
 import { SortPage } from "@/components/catalog/SortPage";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { SkeletonProduct } from "@/components/layout/SkeletonProduct";
+import { products } from "@/lib/mocks";
 
 export default function Page(): JSX.Element {
   const [price, setPrice] = useState<[number, number]>([0, 3000]);
@@ -178,10 +179,3 @@ export default function Page(): JSX.Element {
     </CardMain>
   );
 }
-
-const products = Array(12).fill({
-  name: "Назва товару",
-  price: "1 000,00 грн",
-  oldPrice: "1 000,00 грн",
-  imageSrc: "/recommend-1.png",
-});

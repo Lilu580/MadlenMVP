@@ -1,7 +1,7 @@
 "use client";
 import { Header } from "@/components/layout/Header";
 import { useState } from "react";
-import { TProduct } from "@/lib/types";
+import { IProductSelect } from "@/lib/types";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useSearchParams } from "next/navigation";
 import { CardProduct } from "@/components/home/CardProduct";
@@ -14,7 +14,7 @@ interface Props {
 
 export const HeaderMainSearch = ({ children }: Props) => {
   const [loading, setLoading] = useState(false);
-  const [products, setProducts] = useState<TProduct[]>([]);
+  const [products, setProducts] = useState<IProductSelect[]>([]);
   const searchParams = useSearchParams();
 
   return (

@@ -167,7 +167,6 @@
   }
 }
 
-/* globals.css */
 @layer components {
   .header-1 {
     font-family: 'EB Garamond', sans-serif !important;
@@ -175,9 +174,8 @@
     line-height: 120%;
     letter-spacing: 0;
 
-    /* адаптивный размер */
-    font-size: 32px; /* mobile default */
-    @apply sm:text-[36px] md:text-[46px];
+    font-size: 24px;
+    @apply md:text-[32px] lg:text-[46px];
   }
 
   .header-2 {
@@ -186,8 +184,8 @@
     line-height: 120%;
     letter-spacing: 0;
 
-    font-size: 28px;
-    @apply sm:text-[32px] md:text-[36px];
+    font-size: 26px;
+    @apply lg:text-[36px];
   }
 
   .header-3 {
@@ -196,8 +194,8 @@
     line-height: 120%;
     letter-spacing: 0;
 
-    font-size: 20px;
-    @apply sm:text-[22px] md:text-[24px];
+    font-size: 18px;
+    @apply lg:text-[24px];
   }
 
   .header-4 {
@@ -206,7 +204,7 @@
     letter-spacing: 0;
 
     font-size: 18px;
-    @apply sm:text-[19px] md:text-[20px];
+    @apply lg:text-[20px];
   }
 
   .text-r-1 {
@@ -236,7 +234,7 @@
     letter-spacing: 0;
 
     font-size: 14px;
-    @apply sm:text-[15px] md:text-[16px];
+    @apply lg:text-[16px];
   }
 
   .text-m-2 {
@@ -246,7 +244,7 @@
     letter-spacing: 0;
 
     font-size: 14px;
-    @apply sm:text-[15px] md:text-[16px];
+    @apply lg:text-[16px];
   }
 
   .text-r-3 {
@@ -256,7 +254,7 @@
     letter-spacing: 0;
 
     font-size: 12px;
-    @apply sm:text-[13px] md:text-[14px];
+    @apply lg:text-[14px];
   }
 
   .text-m-3 {
@@ -266,7 +264,7 @@
     letter-spacing: 0;
 
     font-size: 12px;
-    @apply sm:text-[13px] md:text-[14px];
+    @apply lg:text-[14px];
   }
 
   .text-m-4 {

@@ -4,6 +4,7 @@ import React from "react";
 import { CategoryCard } from "./CategoryCard";
 import { cn } from "@/lib/utils";
 import { Skeleton } from "@/components/ui/skeleton";
+import { categories } from "@/lib/mocks";
 
 interface Props {
   isLoading?: boolean;
@@ -57,22 +58,3 @@ const getStyleGrid = (index: number) => {
   }
   return colWidth;
 };
-
-const categories = [
-  {
-    title: "Сукні",
-    image: "/image-4.png",
-  },
-  {
-    title: "Костюми",
-    image: "/image-3.png",
-  },
-  {
-    title: "Аксесуари",
-    image: "/image-2.png",
-  },
-  {
-    title: "Куртки",
-    image: "/image.png",
-  },
-];

@@ -32,7 +32,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { TProduct } from "@/lib/types";
+import { IProductSelect } from "@/lib/types";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { Badge, Burger } from "@/components/svg";
@@ -40,7 +40,7 @@ import { Person } from "@/components/svg/Person";
 import { Search } from "@/components/svg/Search";
 
 interface Props {
-  setProducts?: Dispatch<SetStateAction<TProduct[]>>;
+  setProducts?: Dispatch<SetStateAction<IProductSelect[]>>;
   setLoading?: Dispatch<SetStateAction<boolean>>;
 }
 
@@ -132,9 +132,9 @@ export const Header = ({ setProducts, setLoading }: Props): JSX.Element => {
                   "w-screen h-screen sm:max-w-screen max-w-screen rounded-b-3xl rounded-t-none px-4 py-8 md:hidden overflow-y-auto"
                 }
               >
-                <DialogHeader className={"hidden"}>
-                  <DialogTitle></DialogTitle>
-                  <DialogDescription></DialogDescription>
+                <DialogHeader hidden>
+                  <DialogTitle />
+                  <DialogDescription />
                 </DialogHeader>
                 <div
                   className={
@@ -322,35 +322,65 @@ const categories = [
   },
 ];
 
-const products: TProduct[] = [
+const products: IProductSelect[] = [
   {
     name: "Сукня вечірня",
-    price: "1200₴",
-    oldPrice: "1800₴",
-    imageSrc: "/recommend-1.png",
+    price: {
+      main: 1200,
+      discount: 1800,
+      currency: "₴",
+    },
+    image: "/recommend-1.png",
+    article: "",
+    color: "",
+    count: 0,
   },
   {
     name: "Костюм класичний",
-    price: "2500₴",
-    oldPrice: "3200₴",
-    imageSrc: "/recommend-1.png",
+    price: {
+      main: 2500,
+      discount: 3200,
+      currency: "₴",
+    },
+    image: "/recommend-1.png",
+    article: "",
+    color: "",
+    count: 0,
   },
   {
     name: "Куртка демісезонна",
-    price: "1800₴",
-    oldPrice: "2400₴",
-    imageSrc: "/recommend-1.png",
+    price: {
+      main: 1800,
+      discount: 2400,
+      currency: "₴",
+    },
+    image: "/recommend-1.png",
+    article: "",
+    color: "",
+    count: 0,
   },
   {
     name: "Аксесуари набір",
-    price: "800₴",
-    oldPrice: "1200₴",
-    imageSrc: "/recommend-1.png",
+    price: {
+      main: 800,
+      discount: 1200,
+      currency: "₴",
+    },
+    image: "/recommend-1.png",
+    article: "",
+    color: "",
+    count: 0,
   },
   {
     name: "Сукня коктейльна",
-    price: "1500₴",
-    oldPrice: "2100₴",
-    imageSrc: "/recommend-1.png",
+    price: {
+      main: 1500,
+      discount: 2100,
+      currency: "₴",
+    },
+    image: "/recommend-1.png",
+    article: "",
+    color: "",
+    count: 0,
   },
 ];
