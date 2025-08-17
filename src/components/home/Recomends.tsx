@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { CardProduct } from "./CardProduct";
+import { CardProduct } from "../product/CardProduct";
 import { Button } from "@/components/ui/button";
 import { SkeletonProduct } from "@/components/layout/SkeletonProduct";
 import { products } from "@/lib/mocks";

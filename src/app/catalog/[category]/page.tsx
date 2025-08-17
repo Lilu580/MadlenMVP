@@ -10,7 +10,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { CardProduct } from "@/components/home/CardProduct";
+import { CardProduct } from "@/components/product/CardProduct";
 import {
   Pagination,
   PaginationContent,

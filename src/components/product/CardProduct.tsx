@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { IProductSelect } from "@/lib/types";
-import { cn } from "@/lib/utils";
+import { cn, formatPrice } from "@/lib/utils";
 import { Basket } from "@/components/svg";
 import { useRouter } from "next/navigation";
 
@@ -46,11 +46,11 @@ export const CardProduct = ({ product, size = "sm" }: Props) => {
           <p className="text-m-2 text-gray-project-90">{product.name}</p>
           <div className="flex flex-col lg:flex-row items-center gap-0.5 lg:gap-2">
             <p className="text-m-3 text-gray-project-100">
-              {product.price.main} {product.price.currency}
+              {formatPrice(product.price.main, product.price.currency)}
             </p>
             {product.price.discount && (
               <p className="text-m-3 text-gray-project-60 line-through">
-                {product.price.discount} {product.price.currency}
+                {formatPrice(product.price.discount, product.price.currency)}
               </p>
             )}
           </div>

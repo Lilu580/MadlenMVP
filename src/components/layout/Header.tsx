@@ -38,6 +38,9 @@ import { cn } from "@/lib/utils";
 import { Badge, Burger } from "@/components/svg";
 import { Person } from "@/components/svg/Person";
 import { Search } from "@/components/svg/Search";
+import { categories, products } from "@/lib/mocks";
+import { useAtom } from "jotai";
+import { productBasket } from "@/lib/store";
 
 interface Props {
   setProducts?: Dispatch<SetStateAction<IProductSelect[]>>;
@@ -46,6 +49,7 @@ interface Props {
 
 export const Header = ({ setProducts, setLoading }: Props): JSX.Element => {
   const router = useRouter();
+  const [basket] = useAtom(productBasket);
 
   const [isOpen, setIsOpen] = useState(false);
   const [dialog, setDialog] = useState(false);
@@ -255,15 +259,25 @@ export const Header = ({ setProducts, setLoading }: Props): JSX.Element => {
             </div>
             <Button
               variant={"ghost"}
-              className={cn({
+              className={cn("relative", {
                 ["hidden md:flex"]: isOpen,
               })}
+              onClick={() => router.push("/basket")}
             >
               <Badge
                 size={24}
                 color={"black"}
                 className={"w-5 h-5 lg:w-6 lg:h-6"}
               />
+              {basket.length > 0 && (
+                <span
+                  className={
+                    "absolute text-[11px] text-white font-normal -top-2 -right-2 px-2 bg-gray-project-100 rounded-full"
+                  }
+                >
+                  {basket.length}
+                </span>
+              )}
             </Button>
             <Button
               variant={"ghost"}
@@ -290,97 +304,3 @@ export const Header = ({ setProducts, setLoading }: Props): JSX.Element => {
     </>
   );
 };
-
-const categories = [
-  {
-    title: "Знижки",
-    image: "/recommend-1.png",
-  },
-  {
-    title: "Сукні",
-    image: "/recommend-1.png",
-  },
-  {
-    title: "Костюми",
-    image: "/recommend-1.png",
-  },
-  {
-    title: "Куртки",
-    image: "/recommend-1.png",
-  },
-  {
-    title: "Аксесуари",
-    image: "/recommend-1.png",
-  },
-  {
-    title: "Аксесуари",
-    image: "/recommend-1.png",
-  },
-  {
-    title: "Аксесуари",
-    image: "/recommend-1.png",
-  },
-];
-
-const products: IProductSelect[] = [
-  {
-    name: "Сукня вечірня",
-    price: {
-      main: 1200,
-      discount: 1800,
-      currency: "₴",
-    },
-    image: "/recommend-1.png",
-    article: "",
-    color: "",
-    count: 0,
-  },
-  {
-    name: "Костюм класичний",
-    price: {
-      main: 2500,
-      discount: 3200,
-      currency: "₴",
-    },
-    image: "/recommend-1.png",
-    article: "",
-    color: "",
-    count: 0,
-  },
-  {
-    name: "Куртка демісезонна",
-    price: {
-      main: 1800,
-      discount: 2400,
-      currency: "₴",
-    },
-    image: "/recommend-1.png",
-    article: "",
-    color: "",
-    count: 0,
-  },
-  {
-    name: "Аксесуари набір",
-    price: {
-      main: 800,
-      discount: 1200,
-      currency: "₴",
-    },
-    image: "/recommend-1.png",
-    article: "",
-    color: "",
-    count: 0,
-  },
-  {
-    name: "Сукня коктейльна",
-    price: {
-      main: 1500,
-      discount: 2100,
-      currency: "₴",
-    },
-    image: "/recommend-1.png",
-    article: "",
-    color: "",
-    count: 0,
-  },
-];

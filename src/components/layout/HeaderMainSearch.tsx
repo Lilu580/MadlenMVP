@@ -4,7 +4,7 @@ import { useState } from "react";
 import { IProductSelect } from "@/lib/types";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useSearchParams } from "next/navigation";
-import { CardProduct } from "@/components/home/CardProduct";
+import { CardProduct } from "@/components/product/CardProduct";
 import { SkeletonProduct } from "@/components/layout/SkeletonProduct";
 import { CardMain } from "@/components/layout/CardMain";
 

@@ -3,13 +3,16 @@ export interface IProductInsert {
   article: string;
   colors: TProductColor[];
   price: TProductPrice;
-  descriptions: { title: string; description: string }[];
+  descriptions: TProductDescription[];
 }
+
+export type TProductDescription = { title: string; description: string };
 
 export type TProductImage = { link: string; count: number };
 
 export type TProductColor = {
   color: string;
+  nameColor: string;
   count: number;
   images: TProductImage[];
 };
@@ -24,5 +27,6 @@ export interface IProductSelect
   extends Omit<IProductInsert, "colors" | "descriptions"> {
   image: string;
   color: string;
+  nameColor: string;
   count: number;
 }
