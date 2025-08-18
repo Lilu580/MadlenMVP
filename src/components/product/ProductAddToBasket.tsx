@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Dialog,
   DialogClose,
@@ -10,11 +12,11 @@ import {
 import { Button } from "@/components/ui/button";
 import React, { useMemo } from "react";
 import Image from "next/image";
-import { IProductSelect, TProductPrice } from "@/lib/types";
+import { IProductSelect } from "@/lib/types";
 import { ProductPrice } from "@/components/product/ProductPrice";
 import { useAtom } from "jotai/index";
 import { productBasket } from "@/lib/store";
-import { formatPrice } from "@/lib/utils";
+import { formatPrice, getPriceAllProducts, getPriceProduct } from "@/lib/utils";
 
 interface Props {
   product: IProductSelect;
@@ -34,7 +36,9 @@ export const ProductAddToBasket = ({ product }: Props) => {
   );
 
   const handleAddToBasket = () => {
-    setBasket([...basket, product]);
+    setBasket(
+      basket.find((pr) => pr.id === product.id) ? basket : [...basket, product],
+    );
   };
 
   return (
@@ -126,7 +130,7 @@ export const ProductAddToBasket = ({ product }: Props) => {
                 <span className={"flex w-full items-center justify-between"}>
                   <p className={"text-r-1 text-gray-80"}>Разом:</p>
                   <p className={"text-r-1 text-gray-project-100"}>
-                    {formatPrice(priceProduct, product.price.currency)}
+                    {formatPrice(priceProduct)}
                   </p>
                 </span>
                 <span
@@ -136,7 +140,7 @@ export const ProductAddToBasket = ({ product }: Props) => {
                 >
                   <p className={"header-4 text-gray-project-90"}>Всього:</p>
                   <p className={"header-4 text-gray-project-100"}>
-                    {formatPrice(priceAllProducts, product.price.currency)}
+                    {formatPrice(priceAllProducts)}
                   </p>
                 </span>
               </div>
@@ -174,19 +178,3 @@ function pluralizeTovar(count: number): string {
   }
   return "товарів";
 }
-
-const getPriceProduct = (price: TProductPrice, count: number) => {
-  if (price.discount) {
-    return price.discount * count;
-  }
-
-  return price.main * count;
-};
-
-const getPriceAllProducts = (products: IProductSelect[]) => {
-  let priceAllProducts = 0;
-  products.forEach((product) => {
-    priceAllProducts += getPriceProduct(product.price, product.count);
-  });
-  return priceAllProducts;
-};

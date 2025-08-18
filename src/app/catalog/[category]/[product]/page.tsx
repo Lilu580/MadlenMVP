@@ -23,19 +23,21 @@ export default function Page(): JSX.Element {
   );
   const [selectedCount, setSelectedCount] = useState<number>(1);
 
+  const color = useMemo(
+    () => product.colors.find((v) => v.color === selectedColor.color)!,
+    [selectedColor],
+  );
+
   const handleChangeColor = (value: TProductColor) => {
     setSelectedColor(value);
-    const count = product.colors.find((v) => v.color === value.color)!.count;
-    if (selectedCount > count) {
-      setSelectedCount(count);
+    if (selectedCount > color.count) {
+      setSelectedCount(color.count);
     }
   };
 
   const handleChangeCount = (value: number) => {
-    const count = product.colors.find(
-      (v) => v.color === selectedColor.color,
-    )!.count;
-    const valueNew = value >= count ? count : value <= 1 ? 1 : value;
+    const valueNew =
+      value >= color.count ? color.count : value <= 1 ? 1 : value;
     setSelectedCount(valueNew);
   };
 
@@ -44,16 +46,10 @@ export default function Page(): JSX.Element {
   };
 
   const handleChangeBtnRight = () => {
-    const count = product.colors.find(
-      (v) => v.color === selectedColor.color,
-    )!.count;
-    setSelectedCount(selectedCount + 1 >= count ? count : selectedCount + 1);
+    setSelectedCount(
+      selectedCount + 1 >= color.count ? color.count : selectedCount + 1,
+    );
   };
-
-  const images = useMemo(
-    () => product.colors.find((v) => v.color === selectedColor.color)!.images,
-    [selectedColor],
-  );
 
   useEffect(() => {
     const params = new URLSearchParams(searchParams.toString());
@@ -76,7 +72,7 @@ export default function Page(): JSX.Element {
           "flex flex-col md:flex-row items-center md:items-start justify-start w-full gap-4 lg:gap-5"
         }
       >
-        <ProductImage images={images} color={selectedColor.color} />
+        <ProductImage images={color.images} color={selectedColor.color} />
         <section
           className={
             "flex gap-8 lg:gap-10 items-start justify-start flex-col w-full"
@@ -104,10 +100,12 @@ export default function Page(): JSX.Element {
             <ProductAddToBasket
               product={{
                 ...product,
-                image: images[0].link,
+                image: color.images[0].link,
                 color: selectedColor.color,
                 count: selectedCount,
                 nameColor: selectedColor.nameColor,
+                maxCount: color.count,
+                id: crypto.randomUUID(),
               }}
             />
           </section>

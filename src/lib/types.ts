@@ -1,4 +1,5 @@
 export interface IProductInsert {
+  id: string;
   name: string;
   article: string;
   colors: TProductColor[];
@@ -29,4 +30,5 @@ export interface IProductSelect
   color: string;
   nameColor: string;
   count: number;
+  maxCount: number;
 }

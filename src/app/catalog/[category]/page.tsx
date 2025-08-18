@@ -2,14 +2,6 @@
 
 import React, { JSX, useCallback, useEffect, useRef, useState } from "react";
 import { CardMain } from "@/components/layout/CardMain";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
 import { CardProduct } from "@/components/product/CardProduct";
 import {
   Pagination,
@@ -25,6 +17,7 @@ import { SortPage } from "@/components/catalog/SortPage";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { SkeletonProduct } from "@/components/layout/SkeletonProduct";
 import { products } from "@/lib/mocks";
+import { BreadCrumbs } from "@/components/layout/BreadCrumbs";
 
 export default function Page(): JSX.Element {
   const [price, setPrice] = useState<[number, number]>([0, 3000]);
@@ -96,21 +89,13 @@ export default function Page(): JSX.Element {
 
   return (
     <CardMain className="mt-6 lg:mt-8 md:gap-11 lg:gap-16">
-      <Breadcrumb>
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink href="/public">Головна</BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbLink href="/catalog">Каталог</BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbPage>Костюм</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
+      <BreadCrumbs
+        mainTitle={"Костюми"}
+        links={[
+          { link: "/", title: "Головна" },
+          { link: "/catalog", title: "Каталог" },
+        ]}
+      />
       <div className={"flex flex-col w-full gap-[30px]"}>
         <div
           className={"flex w-full items-end md:items-center justify-between"}
