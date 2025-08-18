@@ -8,7 +8,6 @@ import { cn } from "@/lib/utils";
 import React, { Dispatch, SetStateAction } from "react";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -46,20 +45,19 @@ export const SortPage = (props: Props) => {
         </DialogTrigger>
         <DialogContent
           className={
-            "max-w-none w-screen h-screen m-0 rounded-t-2xl rounded-b-none items-start flex flex-col gap-6 p-4 sm:max-w-none"
+            "max-w-none w-screen h-screen m-0 rounded-t-[16px] rounded-b-none items-start flex flex-col gap-6 md:hidden"
           }
         >
-          <DialogHeader>
-            <DialogTitle>
-              <div className={"flex items-center justify-start gap-2"}>
-                <div className={"p-2.5"}>
-                  <Sort size={24} color={"#0A0B0C"} />
-                </div>
-                <p className={"text-m-1 text-gray-project-100"}>Сортування</p>
-              </div>
-            </DialogTitle>
-            <DialogDescription hidden></DialogDescription>
+          <DialogHeader hidden>
+            <DialogTitle />
+            <DialogDescription />
           </DialogHeader>
+          <div className={"flex items-center justify-start gap-2"}>
+            <div className={"p-2.5"}>
+              <Sort size={24} color={"#0A0B0C"} />
+            </div>
+            <p className={"text-m-1 text-gray-project-100"}>Сортування</p>
+          </div>
           <SortContent {...props} />
         </DialogContent>
       </Dialog>

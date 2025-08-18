@@ -32,20 +32,24 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { TProduct } from "@/lib/types";
+import { IProductSelect } from "@/lib/types";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { Badge, Burger } from "@/components/svg";
 import { Person } from "@/components/svg/Person";
 import { Search } from "@/components/svg/Search";
+import { categories, products } from "@/lib/mocks";
+import { useAtom } from "jotai";
+import { productBasket } from "@/lib/store";
 
 interface Props {
-  setProducts?: Dispatch<SetStateAction<TProduct[]>>;
+  setProducts?: Dispatch<SetStateAction<IProductSelect[]>>;
   setLoading?: Dispatch<SetStateAction<boolean>>;
 }
 
 export const Header = ({ setProducts, setLoading }: Props): JSX.Element => {
   const router = useRouter();
+  const [basket] = useAtom(productBasket);
 
   const [isOpen, setIsOpen] = useState(false);
   const [dialog, setDialog] = useState(false);
@@ -116,7 +120,7 @@ export const Header = ({ setProducts, setLoading }: Props): JSX.Element => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 w-full flex items-start justify-center z-50">
+      <header className="fixed top-0 left-0 right-0 w-full flex items-start justify-center z-40">
         <div className="max-w-8xl h-[65px] md:h-[83px] lg:h-[116px] flex gap-4 w-full items-center justify-between px-4 md:px-20 lg:px-[112px] rounded-b-4xl bg-white">
           <div
             className={cn("flex gap-2 items-center", {
@@ -132,9 +136,9 @@ export const Header = ({ setProducts, setLoading }: Props): JSX.Element => {
                   "w-screen h-screen sm:max-w-screen max-w-screen rounded-b-3xl rounded-t-none px-4 py-8 md:hidden overflow-y-auto"
                 }
               >
-                <DialogHeader className={"hidden"}>
-                  <DialogTitle></DialogTitle>
-                  <DialogDescription></DialogDescription>
+                <DialogHeader hidden>
+                  <DialogTitle />
+                  <DialogDescription />
                 </DialogHeader>
                 <div
                   className={
@@ -255,15 +259,25 @@ export const Header = ({ setProducts, setLoading }: Props): JSX.Element => {
             </div>
             <Button
               variant={"ghost"}
-              className={cn({
+              className={cn("relative", {
                 ["hidden md:flex"]: isOpen,
               })}
+              onClick={() => router.push("/basket")}
             >
               <Badge
                 size={24}
                 color={"black"}
                 className={"w-5 h-5 lg:w-6 lg:h-6"}
               />
+              {basket.length > 0 && (
+                <span
+                  className={
+                    "absolute text-[11px] text-white font-normal -top-2 -right-2 px-2 bg-gray-project-100 rounded-full"
+                  }
+                >
+                  {basket.length}
+                </span>
+              )}
             </Button>
             <Button
               variant={"ghost"}
@@ -290,67 +304,3 @@ export const Header = ({ setProducts, setLoading }: Props): JSX.Element => {
     </>
   );
 };
-
-const categories = [
-  {
-    title: "Знижки",
-    image: "/recommend-1.png",
-  },
-  {
-    title: "Сукні",
-    image: "/recommend-1.png",
-  },
-  {
-    title: "Костюми",
-    image: "/recommend-1.png",
-  },
-  {
-    title: "Куртки",
-    image: "/recommend-1.png",
-  },
-  {
-    title: "Аксесуари",
-    image: "/recommend-1.png",
-  },
-  {
-    title: "Аксесуари",
-    image: "/recommend-1.png",
-  },
-  {
-    title: "Аксесуари",
-    image: "/recommend-1.png",
-  },
-];
-
-const products: TProduct[] = [
-  {
-    name: "Сукня вечірня",
-    price: "1200₴",
-    oldPrice: "1800₴",
-    imageSrc: "/recommend-1.png",
-  },
-  {
-    name: "Костюм класичний",
-    price: "2500₴",
-    oldPrice: "3200₴",
-    imageSrc: "/recommend-1.png",
-  },
-  {
-    name: "Куртка демісезонна",
-    price: "1800₴",
-    oldPrice: "2400₴",
-    imageSrc: "/recommend-1.png",
-  },
-  {
-    name: "Аксесуари набір",
-    price: "800₴",
-    oldPrice: "1200₴",
-    imageSrc: "/recommend-1.png",
-  },
-  {
-    name: "Сукня коктейльна",
-    price: "1500₴",
-    oldPrice: "2100₴",
-    imageSrc: "/recommend-1.png",
-  },
-];

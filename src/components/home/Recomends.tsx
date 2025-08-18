@@ -1,9 +1,10 @@
 "use client";
 
 import React from "react";
-import { CardProduct } from "./CardProduct";
+import { CardProduct } from "../product/CardProduct";
 import { Button } from "@/components/ui/button";
 import { SkeletonProduct } from "@/components/layout/SkeletonProduct";
+import { products } from "@/lib/mocks";
 
 interface Props {
   isLoading?: boolean;
@@ -23,17 +24,15 @@ export const Recommends = ({ isLoading }: Props) => {
       <div className="flex flex-wrap justify-center gap-2 w-full">
         {isLoading
           ? "0123".split("").map((_, index) => <SkeletonProduct key={index} />)
-          : products.map((product, index) => (
-              <CardProduct key={`${product.name}-${index}`} product={product} />
-            ))}
+          : products
+              .slice(0, 4)
+              .map((product, index) => (
+                <CardProduct
+                  key={`${product.name}-${index}`}
+                  product={product}
+                />
+              ))}
       </div>
     </section>
   );
 };
-
-const products = Array(4).fill({
-  name: "Назва товару",
-  price: "1 000,00 грн",
-  oldPrice: "1 000,00 грн",
-  imageSrc: "/recommend-1.png",
-});
