@@ -13,7 +13,7 @@ export const ProductPrice = ({ price, size = "xs" }: Props) => {
   return (
     <section
       className={cn("flex gap-4 items-center justify-start flex-wrap", {
-        ["flex-col md:flex-row items-center md:items-start lg:items-center gap-1 md:gap-2 lg:gap-4"]:
+        ["flex-col md:flex-row items-start lg:items-center gap-1 md:gap-2 lg:gap-4"]:
           size === "sm",
       })}
     >
@@ -29,7 +29,7 @@ export const ProductPrice = ({ price, size = "xs" }: Props) => {
                 "text-gray-project-100 text-nowrap",
               )}
             >
-              {formatPrice(price.discount, price.currency)}
+              {formatPrice(price.discount)}
             </h3>
             <p
               className={cn(
@@ -40,7 +40,7 @@ export const ProductPrice = ({ price, size = "xs" }: Props) => {
                 "text-gray-project-50 line-through text-nowrap",
               )}
             >
-              {formatPrice(price.main, price.currency)}
+              {formatPrice(price.main)}
             </p>
           </span>
           <Badge variant="destructive">
@@ -58,7 +58,7 @@ export const ProductPrice = ({ price, size = "xs" }: Props) => {
               "text-gray-project-100 text-nowrap",
             )}
           >
-            {formatPrice(price.main, price.currency)}
+            {formatPrice(price.main)}
           </h3>
         </span>
       )}

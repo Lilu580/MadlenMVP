@@ -18,7 +18,7 @@ export const Footer = () => {
             variant={"ghost"}
             onClick={() => router.push("/", { scroll: true })}
           >
-            <Image alt="Madlen Logo" src="/Logo.svg" width={185} height={68} />
+            <Image alt="Madlen Logo" src="/Logo.webp" width={185} height={68} />
           </Button>
 
           <div className={"flex flex-col gap-4 items-start justify-start"}>

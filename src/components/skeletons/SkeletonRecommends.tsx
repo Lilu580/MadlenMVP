@@ -1,11 +1,8 @@
-"use client";
-
-import React from "react";
-import { CardProduct } from "../product/CardProduct";
 import { Button } from "@/components/ui/button";
-import { products } from "@/lib/mocks";
+import { SkeletonProduct } from "@/components/skeletons/SkeletonProduct";
+import React from "react";
 
-export const Recommends = () => {
+export const SkeletonRecommends = () => {
   return (
     <section
       id={"products"}
@@ -13,12 +10,14 @@ export const Recommends = () => {
     >
       <div className="flex items-center justify-between w-full">
         <h2 className="header-2 text-gray-project-100">НОВИНКИ</h2>
-        <Button variant={"outline"}>Переглянути все</Button>
+        <Button disabled variant={"outline"}>
+          Переглянути все
+        </Button>
       </div>
 
       <div className="flex flex-wrap justify-center gap-2 w-full">
-        {products.slice(0, 4).map((product, index) => (
-          <CardProduct key={`${product.name}-${index}`} product={product} />
+        {"0123".split("").map((_, index) => (
+          <SkeletonProduct key={index} />
         ))}
       </div>
     </section>

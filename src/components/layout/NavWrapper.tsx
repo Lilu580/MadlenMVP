@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import React from "react";
 import { usePathname, useRouter } from "next/navigation";
+import Link from "next/link";
 
 interface Props {
   children?: React.ReactNode;
@@ -16,7 +17,7 @@ export const NavWrapper = ({ children, onClick }: Props) => {
   return (
     <>
       <Button
-        className={"text-lg"}
+        className={"text-r-1"}
         variant={"link"}
         onClick={() => {
           router.push("/catalog");
@@ -24,11 +25,21 @@ export const NavWrapper = ({ children, onClick }: Props) => {
             onClick("/catalog");
           }
         }}
+        asChild
       >
-        Каталог
+        <Link
+          href={"/catalog"}
+          onClick={() => {
+            if (onClick) {
+              onClick("/catalog");
+            }
+          }}
+        >
+          Каталог
+        </Link>
       </Button>
       <Button
-        className={"text-lg"}
+        className={"text-r-1"}
         variant={"link"}
         onClick={() => {
           if (pathname === "/") {
@@ -47,7 +58,7 @@ export const NavWrapper = ({ children, onClick }: Props) => {
       </Button>
       {children}
       <Button
-        className={"text-lg"}
+        className={"text-r-1"}
         variant={"link"}
         onClick={() => {
           document

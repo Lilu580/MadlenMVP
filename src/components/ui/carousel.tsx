@@ -10,7 +10,7 @@ import {
 } from "react";
 import { motion, Transition, useMotionValue } from "motion/react";
 import { cn } from "@/lib/utils";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Chevron } from "@/components/svg";
 
 export type CarouselContextType = {
   index: number;
@@ -160,11 +160,10 @@ function CarouselNavigation({
           }
         }}
       >
-        <ChevronLeft
-          className={cn("stroke-gray-project-60", {
-            ["rotate-90"]: position === "vertical",
+        <Chevron
+          className={cn("stroke-gray-project-60 size-4", {
+            ["rotate-180"]: position === "vertical",
           })}
-          size={16}
         />
       </button>
       <button
@@ -186,11 +185,10 @@ function CarouselNavigation({
           }
         }}
       >
-        <ChevronRight
-          className={cn("stroke-gray-project-60", {
-            ["rotate-90"]: position === "vertical",
+        <Chevron
+          className={cn("stroke-gray-project-60 size-4 rotate-270", {
+            ["rotate-0"]: position === "vertical",
           })}
-          size={16}
         />
       </button>
     </div>

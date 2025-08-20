@@ -14,7 +14,6 @@ import {
 import Range from "@/components/ui/range";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
-import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -91,7 +90,10 @@ const FilterButton = ({ filter }: { filter: boolean }) => {
         <ArrowDown
           color={"#495057"}
           size={12}
-          className={cn("rotate-90", filter && "rotate-270")}
+          className={cn(
+            "rotate-90 transition-all duration-200",
+            filter && "rotate-270",
+          )}
         />
       </div>
     </div>

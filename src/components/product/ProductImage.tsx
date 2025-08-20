@@ -110,7 +110,7 @@ export const ProductImage = ({ images, color }: Props) => {
                       />
                     </MorphingDialogContent>
                     <MorphingDialogClose
-                      className="fixed right-6 top-6 h-fit w-fit rounded-full bg-white p-1"
+                      className="fixed right-6 top-6 h-fit w-fit p-2"
                       variants={{
                         initial: { opacity: 0 },
                         animate: {
@@ -120,7 +120,7 @@ export const ProductImage = ({ images, color }: Props) => {
                         exit: { opacity: 0, transition: { duration: 0 } },
                       }}
                     >
-                      <X className="h-5 w-5 fill-gray-project-40" />
+                      <X className="h-5 w-5 fill-gray-project-60" />
                     </MorphingDialogClose>
                   </MorphingDialogContainer>
                 </MorphingDialog>

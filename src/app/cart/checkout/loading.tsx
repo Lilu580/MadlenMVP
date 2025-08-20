@@ -2,22 +2,14 @@ import { Button } from "@/components/ui/button";
 import { CardMain } from "@/components/layout/CardMain";
 import React from "react";
 import { Skeleton } from "@/components/ui/skeleton";
-import { WrapInput } from "@/components/ui/wrap-input";
-import { Input } from "@/components/ui/input";
-import { DeliverySection } from "@/components/checkout/DeliverySection";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Visa } from "@/components/svg/Vise";
-import { MasterCard } from "@/components/svg/MasterCard";
-import { Textarea } from "@/components/ui/textarea";
-import { Checkbox } from "@/components/ui/checkbox";
-import { CardProductCart } from "@/components/cart/CardProductCart";
-import { CardGeneralPrice } from "@/components/cart/CardGeneralPrice";
 import { SkeletonPriceCart } from "@/components/skeletons/SkeletonPriceCart";
+import { SkeletonBreadcrumbs } from "@/components/skeletons/SkeletonBreadcrumbs";
+import { SkeletonCardProductCart } from "@/components/skeletons/SkeletonCardProductCart";
 
 export default function Page() {
   return (
     <CardMain className="mt-6 lg:mt-8 md:gap-11 lg:gap-16">
-      <Skeleton className={"w-full h-4 lg:h-5"} />
+      <SkeletonBreadcrumbs />
       <div className={"flex flex-col w-full gap-8"}>
         <h2
           className={
@@ -75,16 +67,7 @@ export default function Page() {
           >
             <ul className={"w-full flex flex-col gap-4"}>
               {"01234".split("").map((key) => (
-                <li
-                  key={key}
-                  className={
-                    "flex w-full border-t border-gray-project-30 pt-4 first-of-type:pt-0 first-of-type:border-0"
-                  }
-                >
-                  <Skeleton
-                    className={"w-full h-[168px] md:h-[130px] lg:h-[98px]"}
-                  />
-                </li>
+                <SkeletonCardProductCart key={key} />
               ))}
             </ul>
             <h4

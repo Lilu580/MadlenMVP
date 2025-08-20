@@ -3,9 +3,9 @@ import { Header } from "@/components/layout/Header";
 import { useState } from "react";
 import { IProductSelect } from "@/lib/types";
 import { Skeleton } from "@/components/ui/skeleton";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { CardProduct } from "@/components/product/CardProduct";
-import { SkeletonProduct } from "@/components/layout/SkeletonProduct";
+import { SkeletonProduct } from "@/components/skeletons/SkeletonProduct";
 import { CardMain } from "@/components/layout/CardMain";
 
 interface Props {
@@ -13,6 +13,7 @@ interface Props {
 }
 
 export const HeaderMainSearch = ({ children }: Props) => {
+  const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [products, setProducts] = useState<IProductSelect[]>([]);
   const searchParams = useSearchParams();
@@ -36,7 +37,7 @@ export const HeaderMainSearch = ({ children }: Props) => {
           <CardMain className={"md:mt-10 lg:mt-[60px] mt-10"}>
             <div className={"flex w-full items-center justify-between"}>
               <h2 className={"header-2 text-gray-project-90"}>
-                Результат пошуку «{searchParams.get("search")}»
+                Результат пошуку «{searchParams?.get("search")}»
               </h2>
               <p className={"text-r-2 text-gray-project-80"}>
                 Знайдено {products.length} товара
@@ -44,7 +45,15 @@ export const HeaderMainSearch = ({ children }: Props) => {
             </div>
             <div className={"flex flex-wrap gap-4"}>
               {products.map((product) => (
-                <CardProduct key={product.name} product={product} size={"xs"} />
+                <CardProduct
+                  key={product.name}
+                  product={product}
+                  size={"xs"}
+                  onClick={() => {
+                    setProducts([]);
+                    router.push(window.location.pathname);
+                  }}
+                />
               ))}
             </div>
           </CardMain>
