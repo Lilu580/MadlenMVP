@@ -50,13 +50,9 @@ export const NavWrapper = ({ children, onClick }: Props) => {
         className={"text-lg"}
         variant={"link"}
         onClick={() => {
-          if (pathname === "/") {
-            document
-              .getElementById("footer")
-              ?.scrollIntoView({ behavior: "smooth" });
-          } else {
-            router.push("/");
-          }
+          document
+            .getElementById("footer")
+            ?.scrollIntoView({ behavior: "smooth" });
           if (onClick) {
             onClick();
           }

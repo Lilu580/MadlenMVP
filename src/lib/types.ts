@@ -1,4 +1,5 @@
 export interface IProductInsert {
+  id: string;
   name: string;
   article: string;
   colors: TProductColor[];
@@ -29,4 +30,15 @@ export interface IProductSelect
   color: string;
   nameColor: string;
   count: number;
+  maxCount: number;
 }
+
+export type TDelivery =
+  | { type: "department"; city: string; office: string }
+  | {
+      type: "courier";
+      city: string;
+      country: string;
+      address: string;
+      postIndex: string;
+    };

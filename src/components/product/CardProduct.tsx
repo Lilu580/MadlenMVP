@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useMemo } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -16,6 +16,16 @@ interface Props {
 
 export const CardProduct = ({ product, size = "sm" }: Props) => {
   const router = useRouter();
+
+  const [price, discount] = useMemo(
+    () => [
+      formatPrice(product.price.main, product.price.currency),
+      product.price.discount
+        ? formatPrice(product.price.discount, product.price.currency)
+        : null,
+    ],
+    [product.price],
+  );
 
   return (
     <Card
@@ -45,12 +55,18 @@ export const CardProduct = ({ product, size = "sm" }: Props) => {
         <div className="flex flex-col items-start md:gap-2 md:pb-1 lg:gap-4 md:pl-1 lg:pl-2 lg:py-2">
           <p className="text-m-2 text-gray-project-90">{product.name}</p>
           <div className="flex flex-col lg:flex-row items-center gap-0.5 lg:gap-2">
-            <p className="text-m-3 text-gray-project-100">
-              {formatPrice(product.price.main, product.price.currency)}
+            <p
+              className="text-m-3 text-gray-project-100"
+              suppressHydrationWarning
+            >
+              {price}
             </p>
-            {product.price.discount && (
-              <p className="text-m-3 text-gray-project-60 line-through">
-                {formatPrice(product.price.discount, product.price.currency)}
+            {discount && (
+              <p
+                className="text-m-3 text-gray-project-60 line-through"
+                suppressHydrationWarning
+              >
+                {discount}
               </p>
             )}
           </div>

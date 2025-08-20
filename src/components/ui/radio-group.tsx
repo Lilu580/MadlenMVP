@@ -42,7 +42,7 @@ function RadioGroupItem({
         {isCheck ? (
           <Check className="stroke-white absolute top-1/2 left-1/2 size-4 lg:size-5 -translate-x-1/2 -translate-y-1/2" />
         ) : (
-          <CircleIcon className="fill-gray-project-90 absolute top-1/2 left-1/2 size-4 -translate-x-1/2 -translate-y-1/2" />
+          <CircleIcon className="fill-gray-project-90 absolute top-1/2 left-1/2 size-3 -translate-x-1/2 -translate-y-1/2" />
         )}
       </RadioGroupPrimitive.Indicator>
     </RadioGroupPrimitive.Item>

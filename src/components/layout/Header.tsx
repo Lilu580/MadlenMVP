@@ -40,7 +40,7 @@ import { Person } from "@/components/svg/Person";
 import { Search } from "@/components/svg/Search";
 import { categories, products } from "@/lib/mocks";
 import { useAtom } from "jotai";
-import { productBasket } from "@/lib/store";
+import { productCart } from "@/lib/store";
 
 interface Props {
   setProducts?: Dispatch<SetStateAction<IProductSelect[]>>;
@@ -49,7 +49,7 @@ interface Props {
 
 export const Header = ({ setProducts, setLoading }: Props): JSX.Element => {
   const router = useRouter();
-  const [basket] = useAtom(productBasket);
+  const [basket] = useAtom(productCart);
 
   const [isOpen, setIsOpen] = useState(false);
   const [dialog, setDialog] = useState(false);
@@ -65,7 +65,7 @@ export const Header = ({ setProducts, setLoading }: Props): JSX.Element => {
 
     if (!setLoading || !setProducts) return;
 
-    const params = new URLSearchParams(searchParams.toString());
+    const params = new URLSearchParams(searchParams?.toString());
     if (search.trim() !== "") {
       params.set("search", search);
     } else {
@@ -103,7 +103,7 @@ export const Header = ({ setProducts, setLoading }: Props): JSX.Element => {
   };
 
   useEffect(() => {
-    const search = searchParams.get("search");
+    const search = searchParams?.get("search");
 
     if (search?.trim()) {
       handleSearch(search);
@@ -262,7 +262,7 @@ export const Header = ({ setProducts, setLoading }: Props): JSX.Element => {
               className={cn("relative", {
                 ["hidden md:flex"]: isOpen,
               })}
-              onClick={() => router.push("/basket")}
+              onClick={() => router.push("/cart")}
             >
               <Badge
                 size={24}
@@ -272,10 +272,10 @@ export const Header = ({ setProducts, setLoading }: Props): JSX.Element => {
               {basket.length > 0 && (
                 <span
                   className={
-                    "absolute text-[11px] text-white font-normal -top-2 -right-2 px-2 bg-gray-project-100 rounded-full"
+                    "absolute text-[10px] lg:text-[11px] text-white font-normal -top-2 -right-1 lg:-right-2 leading-none lg:leading-5 py-0.5 px-1 lg:p-0 lg:w-5 lg:h-5 bg-gray-project-100 rounded-full max-w-[33px] text-ellipsis overflow-hidden text-nowrap"
                   }
                 >
-                  {basket.length}
+                  {basket.length > 99 ? "99+" : basket.length}
                 </span>
               )}
             </Button>

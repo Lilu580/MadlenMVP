@@ -1,5 +1,7 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { IProductSelect, TProductPrice } from "@/lib/types";
+import { FormikErrors } from "formik";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -11,11 +13,52 @@ export function getDiscountPercent(oldPrice: number, newPrice: number): number {
   return Math.round(discount * 100) / 100;
 }
 
-export const formatPrice = (value: number, currency: string) => {
-  return new Intl.NumberFormat("uk-UA", {
-    style: "currency",
-    currency,
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  }).format(value);
+export const formatPrice = (value: number) => {
+  return (
+    value.toLocaleString("uk-UA", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    }) + " ₴"
+  );
 };
+
+export const getPriceProduct = (
+  price: TProductPrice,
+  count: number,
+  isDiscount?: boolean,
+) => {
+  if (price.discount && !isDiscount) {
+    return price.discount * count;
+  }
+
+  return price.main * count;
+};
+
+export const getPriceAllProducts = (
+  products: IProductSelect[],
+  isDiscount?: boolean,
+) => {
+  let priceAllProducts = 0;
+  products.forEach((product) => {
+    priceAllProducts += getPriceProduct(
+      product.price,
+      product.count,
+      isDiscount,
+    );
+  });
+  return priceAllProducts;
+};
+
+export const getPriceAllProductsDiscount = (products: IProductSelect[]) => {
+  const withDiscount = getPriceAllProducts(products, true);
+  const withoutDiscount = getPriceAllProducts(products);
+  return withDiscount - withoutDiscount;
+};
+
+export function getFieldError<T extends object>(
+  errors: FormikErrors<T>,
+  field: keyof T,
+): string | undefined {
+  const val = errors?.[field];
+  return typeof val === "string" ? val : undefined;
+}

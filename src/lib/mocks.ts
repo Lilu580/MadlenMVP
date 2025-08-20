@@ -1,7 +1,8 @@
-import { IProductInsert, IProductSelect } from "@/lib/types"; // замени на свой путь
+import { IProductInsert, IProductSelect } from "@/lib/types";
 
 export const products: IProductSelect[] = [
   {
+    id: "TSHIRT001",
     name: "Футболка чоловіча",
     article: "TSHIRT001",
     price: { main: 1500, discount: 1200, currency: "UAH" },
@@ -9,8 +10,10 @@ export const products: IProductSelect[] = [
     color: "#FFFFFF",
     nameColor: "Білий",
     count: 10,
+    maxCount: 10,
   },
   {
+    id: "SNEAKERS045",
     name: "Кросівки спортивні",
     article: "SNEAKERS045",
     price: { main: 3200, discount: 2800, currency: "UAH" },
@@ -18,8 +21,10 @@ export const products: IProductSelect[] = [
     color: "#000000",
     nameColor: "Чорний",
     count: 5,
+    maxCount: 10,
   },
   {
+    id: "BACKPACK210",
     name: "Рюкзак міський",
     article: "BACKPACK210",
     price: { main: 2200, currency: "UAH" },
@@ -27,8 +32,10 @@ export const products: IProductSelect[] = [
     color: "#808080",
     nameColor: "Сірий",
     count: 15,
+    maxCount: 30,
   },
   {
+    id: "JACKET032",
     name: "Куртка демісезонна",
     article: "JACKET032",
     price: { main: 4800, discount: 4300, currency: "UAH" },
@@ -36,8 +43,10 @@ export const products: IProductSelect[] = [
     color: "#0000FF",
     nameColor: "Синій",
     count: 8,
+    maxCount: 20,
   },
   {
+    id: "JEANS119",
     name: "Джинси чоловічі",
     article: "JEANS119",
     price: { main: 2600, discount: 2300, currency: "UAH" },
@@ -45,8 +54,10 @@ export const products: IProductSelect[] = [
     color: "#0A1F44",
     nameColor: "Темно-синій",
     count: 12,
+    maxCount: 20,
   },
   {
+    id: "WAISTBAG007",
     name: "Сумка поясна",
     article: "WAISTBAG007",
     price: { main: 900, currency: "UAH" },
@@ -54,8 +65,10 @@ export const products: IProductSelect[] = [
     color: "#000000",
     nameColor: "Чорний",
     count: 20,
+    maxCount: 30,
   },
   {
+    id: "WATCH501",
     name: "Годинник наручний",
     article: "WATCH501",
     price: { main: 5500, discount: 4999, currency: "UAH" },
@@ -63,8 +76,10 @@ export const products: IProductSelect[] = [
     color: "#C0C0C0",
     nameColor: "Сірий",
     count: 6,
+    maxCount: 10,
   },
   {
+    id: "SUNGLASSES042",
     name: "Окуляри сонцезахисні",
     article: "SUNGLASSES042",
     price: { main: 1800, discount: 1500, currency: "UAH" },
@@ -72,8 +87,10 @@ export const products: IProductSelect[] = [
     color: "#000000",
     nameColor: "Чорний",
     count: 25,
+    maxCount: 30,
   },
   {
+    id: "SHIRT223",
     name: "Сорочка класична",
     article: "SHIRT223",
     price: { main: 2000, currency: "UAH" },
@@ -81,8 +98,10 @@ export const products: IProductSelect[] = [
     color: "#FFFFFF",
     nameColor: "Білий",
     count: 9,
+    maxCount: 10,
   },
   {
+    id: "BLAZER034",
     name: "Піджак чоловічий",
     article: "BLAZER034",
     price: { main: 6700, discount: 5999, currency: "UAH" },
@@ -90,29 +109,19 @@ export const products: IProductSelect[] = [
     color: "#808080",
     nameColor: "Сірий",
     count: 4,
+    maxCount: 10,
   },
 ];
 
 export const categories = [
-  {
-    title: "Сукні",
-    image: "/image-4.png",
-  },
-  {
-    title: "Костюми",
-    image: "/image-3.png",
-  },
-  {
-    title: "Аксесуари",
-    image: "/image-2.png",
-  },
-  {
-    title: "Куртки",
-    image: "/image.png",
-  },
+  { title: "Сукні", image: "/image-4.png" },
+  { title: "Костюми", image: "/image-3.png" },
+  { title: "Аксесуари", image: "/image-2.png" },
+  { title: "Куртки", image: "/image.png" },
 ];
 
 export const product: IProductInsert = {
+  id: "245456",
   name: "Назва товару",
   article: "245456",
   price: {

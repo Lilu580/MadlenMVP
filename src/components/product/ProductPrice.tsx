@@ -1,5 +1,6 @@
+"use client";
 import { Badge } from "@/components/ui/badge";
-import { cn, formatPrice, getDiscountPercent } from "@/lib/utils";
+import { cn, getDiscountPercent, formatPrice } from "@/lib/utils";
 import React from "react";
 import { TProductPrice } from "@/lib/types";
 
