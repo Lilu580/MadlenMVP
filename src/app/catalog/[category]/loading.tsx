@@ -1,5 +1,5 @@
 import { Skeleton } from "@/components/ui/skeleton";
-import { SkeletonProduct } from "@/components/layout/SkeletonProduct";
+import { SkeletonProduct } from "@/components/skeletons/SkeletonProduct";
 import { CardMain } from "@/components/layout/CardMain";
 import React from "react";
 

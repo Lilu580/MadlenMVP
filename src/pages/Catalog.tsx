@@ -6,7 +6,7 @@ import { CardProduct } from "@/components/product/CardProduct";
 import { FilterPage } from "@/components/catalog/FilterPage";
 import { SortPage } from "@/components/catalog/SortPage";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { SkeletonProduct } from "@/components/layout/SkeletonProduct";
+import { SkeletonProduct } from "@/components/skeletons/SkeletonProduct";
 import { products } from "@/lib/mocks";
 import { BreadCrumbs } from "@/components/layout/BreadCrumbs";
 import { PaginationCatalog } from "@/components/layout/Pagination";

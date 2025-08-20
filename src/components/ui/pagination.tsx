@@ -1,9 +1,8 @@
 import * as React from "react";
-import { MoreHorizontalIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Button, buttonVariants } from "@/components/ui/button";
-import { ArrowRight } from "@/components/svg";
+import { ArrowRight, MoreHorizontal } from "@/components/svg";
 
 function Pagination({ className, ...props }: React.ComponentProps<"nav">) {
   return (
@@ -75,7 +74,9 @@ function PaginationPrevious({
       className={cn("gap-1 px-2.5 sm:pl-2.5", className)}
       {...props}
     >
-      <ArrowRight size={10} color={"#495057"} className={"rotate-180"} />
+      <ArrowRight
+        className={"rotate-180 size-4 stroke-gray-project-80 stroke-2"}
+      />
     </PaginationLink>
   );
 }
@@ -91,7 +92,7 @@ function PaginationNext({
       className={cn("gap-1 px-2.5 sm:pr-2.5", className)}
       {...props}
     >
-      <ArrowRight size={10} color={"#495057"} />
+      <ArrowRight className={"size-4 stroke-gray-project-80 stroke-2"} />
     </PaginationLink>
   );
 }
@@ -107,7 +108,7 @@ function PaginationEllipsis({
       className={cn("flex size-9 items-end justify-center", className)}
       {...props}
     >
-      <MoreHorizontalIcon className="size-3" color={"#495057"} />
+      <MoreHorizontal className="size-4 fill-gray-project-80" />
     </span>
   );
 }

@@ -82,7 +82,10 @@ const SortButton = ({ sort }: { sort: boolean }) => {
         <ArrowDown
           color={"#495057"}
           size={12}
-          className={cn("rotate-90", sort && "rotate-270")}
+          className={cn(
+            "rotate-90 transition-all duration-200",
+            sort && "rotate-270",
+          )}
         />
       </div>
     </div>

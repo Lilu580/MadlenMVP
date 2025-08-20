@@ -2,9 +2,9 @@
 
 import * as React from "react";
 import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
-import { Check, CircleIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
+import { Check, Circle } from "@/components/svg";
 
 function RadioGroup({
   className,
@@ -40,9 +40,9 @@ function RadioGroupItem({
         className="relative flex items-center justify-center"
       >
         {isCheck ? (
-          <Check className="stroke-white absolute top-1/2 left-1/2 size-4 lg:size-5 -translate-x-1/2 -translate-y-1/2" />
+          <Check className="fill-white absolute top-1/2 left-1/2 size-3.5 lg:size-4 -translate-x-1/2 -translate-y-1/2" />
         ) : (
-          <CircleIcon className="fill-gray-project-90 absolute top-1/2 left-1/2 size-3 -translate-x-1/2 -translate-y-1/2" />
+          <Circle className="fill-gray-project-90 absolute top-1/2 left-1/2 size-3 -translate-x-1/2 -translate-y-1/2" />
         )}
       </RadioGroupPrimitive.Indicator>
     </RadioGroupPrimitive.Item>

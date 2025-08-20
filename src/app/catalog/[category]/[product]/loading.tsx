@@ -1,11 +1,12 @@
 import { Skeleton } from "@/components/ui/skeleton";
 import { CardMain } from "@/components/layout/CardMain";
 import React from "react";
+import { SkeletonBreadcrumbs } from "@/components/skeletons/SkeletonBreadcrumbs";
 
 const Loading = () => {
   return (
     <CardMain className="mt-6 lg:mt-8 md:gap-11 lg:gap-16">
-      <Skeleton className={"w-full h-6"} />
+      <SkeletonBreadcrumbs />
       <div
         className={
           "flex flex-col md:flex-row items-center md:items-start justify-start w-full gap-4 lg:gap-5"

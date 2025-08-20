@@ -62,3 +62,21 @@ export function getFieldError<T extends object>(
   const val = errors?.[field];
   return typeof val === "string" ? val : undefined;
 }
+
+export const getStyleGridCategoriesCard = (index: number) => {
+  const isEvenRow = Math.floor(index / 2) % 2 === 1;
+  const isFirstInRow = index % 2 === 0;
+
+  let colWidth = "";
+
+  if (!isEvenRow) {
+    colWidth = isFirstInRow
+      ? "md:col-start-1 md:col-end-3 col-start-1 col-end-4"
+      : "md:col-start-3 md:col-end-7 col-start-4 col-end-7";
+  } else {
+    colWidth = isFirstInRow
+      ? "md:col-start-1 md:col-end-5 col-start-1 col-end-4"
+      : "md:col-start-5 md:col-end-7 col-start-4 col-end-7";
+  }
+  return colWidth;
+};

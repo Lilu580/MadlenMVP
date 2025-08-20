@@ -41,6 +41,7 @@ import { Search } from "@/components/svg/Search";
 import { categories, products } from "@/lib/mocks";
 import { useAtom } from "jotai";
 import { productCart } from "@/lib/store";
+import Link from "next/link";
 
 interface Props {
   setProducts?: Dispatch<SetStateAction<IProductSelect[]>>;
@@ -178,16 +179,18 @@ export const Header = ({ setProducts, setLoading }: Props): JSX.Element => {
                 </div>
               </DialogContent>
             </Dialog>
-            <Button variant={"ghost"} onClick={() => handleRoute("/")}>
-              <Image
-                alt="Madlen Logo"
-                src="/Logo.svg"
-                width={185}
-                height={67}
-                className={
-                  "lg:w-[185px] lg:h-[67px] md:w-[140px] md:h-[51px] w-[112px] h-[41px]"
-                }
-              />
+            <Button variant={"ghost"} asChild>
+              <Link href={"/"} onClick={() => handleRoute("/")}>
+                <Image
+                  alt="Madlen Logo"
+                  src="/Logo.webp"
+                  width={185}
+                  height={67}
+                  className={
+                    "lg:w-[185px] lg:h-[67px] md:w-[140px] md:h-[51px] w-[112px] h-[41px]"
+                  }
+                />
+              </Link>
             </Button>
           </div>
 

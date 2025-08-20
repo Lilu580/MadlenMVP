@@ -21,6 +21,7 @@ import { Visa } from "@/components/svg/Vise";
 import { MasterCard } from "@/components/svg/MasterCard";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Loader } from "@/components/svg";
 
 export function Checkout() {
   const router = useRouter();
@@ -241,6 +242,9 @@ export function Checkout() {
                 className={"max-w-none md:max-w-[278px] xl:max-w-none w-full"}
               >
                 ОФОРМИТИ ЗАМОВЛЕННЯ
+                {loading && (
+                  <Loader className={"stroke-gray-project-40 ml-2"} />
+                )}
               </Button>
             </div>
           </div>

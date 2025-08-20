@@ -21,7 +21,6 @@ export type TProductColor = {
 export type TProductPrice = {
   main: number;
   discount?: number;
-  currency: string;
 };
 
 export interface IProductSelect
