@@ -32,7 +32,7 @@ export const ProductAddToBasket = ({ product }: Props) => {
 
   const priceAllProducts = useMemo(
     () => getPriceAllProducts([...basket, product]),
-    [product.price, product.count, basket],
+    [product, basket],
   );
 
   const handleAddToBasket = () => {
