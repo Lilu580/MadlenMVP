@@ -1,7 +1,6 @@
-import React from "react";
-import { Product } from "@/pages/Product";
+import { Cart } from "@/pages/Cart";
 
 export default async function Page() {
   await new Promise((resolve) => setTimeout(resolve, 5000));
-  return <Product />;
+  return <Cart />;
 }

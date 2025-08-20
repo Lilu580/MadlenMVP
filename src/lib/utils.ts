@@ -1,6 +1,7 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { IProductSelect, TProductPrice } from "@/lib/types";
+import { FormikErrors } from "formik";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -53,3 +54,11 @@ export const getPriceAllProductsDiscount = (products: IProductSelect[]) => {
   const withoutDiscount = getPriceAllProducts(products);
   return withDiscount - withoutDiscount;
 };
+
+export function getFieldError<T extends object>(
+  errors: FormikErrors<T>,
+  field: keyof T,
+): string | undefined {
+  const val = errors?.[field];
+  return typeof val === "string" ? val : undefined;
+}

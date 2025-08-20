@@ -23,27 +23,27 @@ const Loading = () => {
         >
           <section className={"flex flex-col gap-6 lg:gap-8 w-full"}>
             <section className={"flex flex-col gap-2 w-full"}>
-              <Skeleton className={"w-full h-[29px] lg:h-[43px]"} />
-              <Skeleton className={"w-full h-[20px] lg:h-[25px]"} />
+              <Skeleton className={"w-full h-[31px] lg:h-[43px]"} />
+              <Skeleton className={"w-full h-[22px] lg:h-[25px]"} />
             </section>
-            <section className={"flex gap-4 items-center justify-start"}>
-              <Skeleton className={"w-full h-[30px] lg:h-[34px]"} />
+            <section className={"flex gap-4 items-center justify-start w-full"}>
+              <Skeleton className={"w-full h-[30px] lg:h-[32px]"} />
             </section>
             <section
-              className={"flex flex-col justify-start items-start gap-6"}
+              className={"flex flex-col justify-start items-start gap-6 w-full"}
             >
-              <div className={"flex flex-col gap-4 lg:gap-5"}>
-                <Skeleton className={"w-full h-[70px] lg:h-[81px]"} />
+              <div className={"flex flex-col gap-4 lg:gap-5 w-full"}>
+                <Skeleton className={"w-full h-[70px] lg:h-[82px]"} />
               </div>
-              <div className={"flex flex-col gap-4 lg:gap-5"}>
-                <Skeleton className={"w-full h-[75px] lg:h-[82px]"} />
+              <div className={"flex flex-col gap-4 lg:gap-5 w-full"}>
+                <Skeleton className={"w-full h-[74px] lg:h-[81px]"} />
               </div>
             </section>
             <Skeleton className={"w-full h-[52px] lg:h-[62px]"} />
           </section>
-          <section className={"flex gap-4 w-full"}>
-            <Skeleton className={"w-full h-[73px] lg:h-[85px]"} />
-            <Skeleton className={"w-full h-[73px] lg:h-[85px]"} />
+          <section className={"flex flex-col gap-4 w-full"}>
+            <Skeleton className={"w-full h-[72px] lg:h-[83px]"} />
+            <Skeleton className={"w-full h-[72px] lg:h-[83px]"} />
           </section>
         </section>
       </div>

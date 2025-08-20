@@ -15,7 +15,7 @@ import Image from "next/image";
 import { IProductSelect } from "@/lib/types";
 import { ProductPrice } from "@/components/product/ProductPrice";
 import { useAtom } from "jotai/index";
-import { productBasket } from "@/lib/store";
+import { productCart } from "@/lib/store";
 import { formatPrice, getPriceAllProducts, getPriceProduct } from "@/lib/utils";
 
 interface Props {
@@ -23,7 +23,7 @@ interface Props {
 }
 
 export const ProductAddToBasket = ({ product }: Props) => {
-  const [basket, setBasket] = useAtom(productBasket);
+  const [basket, setBasket] = useAtom(productCart);
 
   const priceProduct = useMemo(
     () => getPriceProduct(product.price, product.count),

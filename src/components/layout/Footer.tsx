@@ -97,7 +97,7 @@ export const Footer = () => {
               </Button>
             </form>
           </div>
-          <p className="text-center md:text-right text-gray-project-60 text-m-4 w-full">
+          <p className="text-center md:text-right text-gray-project-60 text-r-4 w-full">
             © 2025 All rights reserved.
           </p>
         </div>

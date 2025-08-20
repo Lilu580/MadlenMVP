@@ -1,11 +1,9 @@
 import { Skeleton } from "@/components/ui/skeleton";
 
-const Loading = () => {
+export default function Page() {
   return (
     <div className={"w-full h-full"}>
       <Skeleton className={"w-full h-full"} />
     </div>
   );
-};
-
-export default Loading;
+}

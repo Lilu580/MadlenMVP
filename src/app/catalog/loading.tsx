@@ -3,10 +3,10 @@ import { SkeletonProduct } from "@/components/layout/SkeletonProduct";
 import { CardMain } from "@/components/layout/CardMain";
 import React from "react";
 
-const Loading = () => {
+export default function Page() {
   return (
     <CardMain className="mt-6 lg:mt-8 md:gap-11 lg:gap-16">
-      <Skeleton className={"w-full h-6"} />
+      <Skeleton className={"w-full h-4 lg:h-5"} />
       <div className={"flex flex-col w-full gap-[30px]"}>
         <Skeleton className={"w-full h-[27px] mb-6 md:hidden"} />
         <Skeleton className={"w-full h-[52px] lg:h-16"} />
@@ -18,11 +18,9 @@ const Loading = () => {
               <SkeletonProduct size={"xs"} key={key} />
             ))}
           </div>
-          <Skeleton className={"w-full h-[34px]"} />
+          <Skeleton className={"w-full h-9"} />
         </div>
       </div>
     </CardMain>
   );
-};
-
-export default Loading;
+}

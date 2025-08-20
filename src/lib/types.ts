@@ -32,3 +32,13 @@ export interface IProductSelect
   count: number;
   maxCount: number;
 }
+
+export type TDelivery =
+  | { type: "department"; city: string; office: string }
+  | {
+      type: "courier";
+      city: string;
+      country: string;
+      address: string;
+      postIndex: string;
+    };
