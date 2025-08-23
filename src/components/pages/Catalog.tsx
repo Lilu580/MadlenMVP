@@ -1,6 +1,12 @@
 "use client";
 
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, {
+  Suspense,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { CardMain } from "@/components/layout/CardMain";
 import { CardProduct } from "@/components/product/CardProduct";
 import { FilterPage } from "@/components/catalog/FilterPage";
@@ -10,8 +16,9 @@ import { SkeletonProduct } from "@/components/skeletons/SkeletonProduct";
 import { products } from "@/lib/mocks";
 import { BreadCrumbs } from "@/components/layout/BreadCrumbs";
 import { PaginationCatalog } from "@/components/layout/Pagination";
+import { SkeletonCatalog } from "@/components/skeletons/SkeletonCatalog";
 
-export function Catalog() {
+function CatalogInitial() {
   const [price, setPrice] = useState<[number, number]>([0, 3000]);
   const [material, setMaterial] = useState<string[]>([]);
   const [sort, setSort] = useState<string>("growth");
@@ -128,5 +135,13 @@ export function Catalog() {
         </div>
       </div>
     </CardMain>
+  );
+}
+
+export function Catalog() {
+  return (
+    <Suspense fallback={<SkeletonCatalog />}>
+      <CatalogInitial />
+    </Suspense>
   );
 }
