@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useMemo, useState } from "react";
+import React, { Suspense, useEffect, useMemo, useState } from "react";
 import { CardMain } from "@/components/layout/CardMain";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { ProductImage } from "@/components/product/ProductImage";
@@ -11,8 +11,9 @@ import { ProductPrice } from "@/components/product/ProductPrice";
 import { ProductChoose } from "@/components/product/ProductChoose";
 import { ProductAddToBasket } from "@/components/product/ProductAddToBasket";
 import { TProductColor } from "@/lib/types";
+import { SkeletonProducts } from "@/components/skeletons/SkeletonProducts";
 
-export function Product() {
+function ProductInitial() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -115,5 +116,13 @@ export function Product() {
         </section>
       </div>
     </CardMain>
+  );
+}
+
+export function Product() {
+  return (
+    <Suspense fallback={<SkeletonProducts />}>
+      <ProductInitial />
+    </Suspense>
   );
 }
