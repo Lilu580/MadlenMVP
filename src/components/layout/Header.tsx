@@ -108,7 +108,7 @@ export const Header = ({ setProducts, setLoading }: Props): JSX.Element => {
                     <Accordion collapsible type={"single"} className={"w-full"}>
                       <AccordionItem value={"1"}>
                         <Button
-                          className={"text-lg font-normal"}
+                          className={"font-normal"}
                           variant={"link"}
                           asChild
                         >
