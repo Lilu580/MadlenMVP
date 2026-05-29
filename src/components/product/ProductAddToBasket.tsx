@@ -35,16 +35,21 @@ export const ProductAddToBasket = ({ product }: Props) => {
     [product, basket],
   );
 
+  const alreadyInCart = basket.some(
+    (pr) => pr.id === product.id && pr.color === product.color,
+  );
+
   const handleAddToBasket = () => {
-    setBasket(
-      basket.find((pr) => pr.id === product.id) ? basket : [...basket, product],
-    );
+    if (alreadyInCart) return;
+    setBasket([...basket, product]);
   };
 
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className={"w-full lg:max-w-[392px]"}>Додати в кошик</Button>
+        <Button className={"w-full lg:max-w-[392px]"} disabled={product.maxCount === 0}>
+          {product.maxCount === 0 ? "Немає в наявності" : "Додати в кошик"}
+        </Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
@@ -146,7 +151,9 @@ export const ProductAddToBasket = ({ product }: Props) => {
               </div>
             </div>
             <div className={"flex flex-col w-full gap-1"}>
-              <Button onClick={handleAddToBasket}>ДОДАТИ В КОШИК</Button>
+              <Button onClick={handleAddToBasket} disabled={alreadyInCart}>
+            {alreadyInCart ? "ВЖЕ В КОШИКУ" : "ДОДАТИ В КОШИК"}
+          </Button>
               <DialogClose asChild>
                 <Button
                   variant={"ghost"}
