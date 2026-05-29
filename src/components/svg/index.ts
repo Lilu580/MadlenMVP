@@ -21,4 +21,3 @@ export * from "./Circle";
 export * from "./Plus";
 export * from "./Minus";
 export * from "./Loader";
-export * from "./Logo";

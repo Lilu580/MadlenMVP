@@ -1,5 +1,3 @@
-"use client";
-
 import { Suspense } from "react";
 import { Banner } from "@/components/home/Banner";
 import { Categories } from "@/components/home/Categories";

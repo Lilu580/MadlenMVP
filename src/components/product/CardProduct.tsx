@@ -24,15 +24,12 @@ export const CardProduct = ({ product, size = "sm", onClick }: Props) => {
     [product.price],
   );
 
+  const href = product.categorySlug
+    ? `/catalog/${product.categorySlug}/${product.id}`
+    : `/catalog`;
+
   return (
-    <Link
-      href={"/catalog/jeans/1"}
-      onClick={() => {
-        if (onClick) {
-          onClick();
-        }
-      }}
-    >
+    <Link href={href} onClick={onClick}>
       <Card className="p-1 lg:p-2 border-0 w-min bg-primary-project rounded-[12px] shadow-lg cursor-pointer gap-2 hover:bg-gray-project-40">
         <div
           className={cn(
@@ -74,7 +71,7 @@ export const CardProduct = ({ product, size = "sm", onClick }: Props) => {
             </div>
           </div>
           <Button variant={"secondary"} size={"icon"}>
-            <Basket size={20} className={"lg:h-5 lg:w-5 w-3 h-3 "} />
+            <Basket size={20} className={"lg:h-5 lg:w-5 w-3 h-3"} />
           </Button>
         </div>
       </Card>

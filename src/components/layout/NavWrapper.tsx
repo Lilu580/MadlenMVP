@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import React from "react";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 interface Props {
   children?: React.ReactNode;
@@ -17,7 +18,9 @@ export const NavWrapper = ({ children, onClick }: Props) => {
   return (
     <>
       <Button
-        className={"text-r-1"}
+        className={cn("text-r-1", {
+          ["underline"]: pathname.includes("/catalog"),
+        })}
         variant={"link"}
         onClick={() => {
           router.push("/catalog");

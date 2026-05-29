@@ -4,6 +4,8 @@ import "./globals.css";
 import { Footer } from "@/components/layout/Footer";
 import { cn } from "@/lib/utils";
 import { HeaderMainSearch } from "@/components/layout/HeaderMainSearch";
+import { Providers } from "@/components/providers";
+import { headers } from "next/headers";
 
 const garamond = EB_Garamond({
   subsets: ["cyrillic", "latin"],
@@ -30,11 +32,23 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const headersList = await headers();
+  const pathname = headersList.get("x-pathname") || "";
+  const isAdmin = pathname.startsWith("/admin");
+
   return (
     <html lang="en" suppressHydrationWarning className={garamond.className}>
       <body className={cn("min-h-screen flex flex-col bg-white")}>
-        <HeaderMainSearch>{children}</HeaderMainSearch>
-        <Footer />
+        <Providers>
+          {isAdmin ? (
+            children
+          ) : (
+            <>
+              <HeaderMainSearch>{children}</HeaderMainSearch>
+              <Footer />
+            </>
+          )}
+        </Providers>
       </body>
     </html>
   );

@@ -30,6 +30,7 @@ export interface IProductSelect
   nameColor: string;
   count: number;
   maxCount: number;
+  categorySlug?: string;
 }
 
 export type TDelivery =
