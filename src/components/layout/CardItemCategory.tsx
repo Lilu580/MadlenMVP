@@ -7,12 +7,14 @@ interface Props {
   image: string;
   slug: string;
   className?: string;
+  onClick?: () => void;
 }
 
-export const CardItemCategory = ({ title, image, slug, className }: Props) => {
+export const CardItemCategory = ({ title, image, slug, className, onClick }: Props) => {
   return (
     <Link
       href={`/catalog/${slug}`}
+      onClick={onClick}
       className={cn("flex flex-col gap-2 lg:gap-5 hover:opacity-80 transition-opacity", className)}
     >
       <div className="lg:w-[153px] lg:h-[175px] md:w-[99px] md:h-[110px] w-full h-[136px] relative">

@@ -86,9 +86,19 @@ export const Header = ({ setProducts, setLoading }: Props): JSX.Element => {
                             Категорії
                           </AccordionTrigger>
                         </Button>
-                        <AccordionContent className="grid !w-full grid-cols-2 gap-2 pt-4 pb-0 [&>a:last-of-type]:col-span-2">
+                        <AccordionContent className="flex flex-col gap-1 pt-2 pb-0">
                           {categories.map((item) => (
-                            <CardItemCategory key={item.id} {...item} />
+                            <Link
+                              key={item.id}
+                              href={`/catalog/${item.slug}`}
+                              onClick={() => setDialog(false)}
+                              className="flex items-center gap-3 py-2 hover:opacity-70 transition-opacity"
+                            >
+                              <div className="relative w-10 h-10 rounded-lg overflow-hidden flex-shrink-0">
+                                <Image fill src={item.image} alt={item.title} className="object-cover object-center" sizes="40px" />
+                              </div>
+                              <span className="text-r-1 text-gray-project-100">{item.title}</span>
+                            </Link>
                           ))}
                         </AccordionContent>
                       </AccordionItem>
