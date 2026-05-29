@@ -1,7 +1,6 @@
 "use client";
 
 import { BreadCrumbs } from "@/components/layout/BreadCrumbs";
-import { CardProductCart } from "@/components/cart/CardProductCart";
 import { CardMain } from "@/components/layout/CardMain";
 import React from "react";
 import { useAtomValue } from "jotai";
