@@ -12,7 +12,12 @@ const navItems = [
   { href: "/admin/orders", label: "Замовлення", icon: "📋" },
 ];
 
-export function AdminSidebar() {
+interface Props {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+export function AdminSidebar({ isOpen, onClose }: Props) {
   const pathname = usePathname();
   const router = useRouter();
 
@@ -22,9 +27,21 @@ export function AdminSidebar() {
   };
 
   return (
-    <aside className="fixed left-0 top-0 h-screen w-56 bg-gray-project-100 flex flex-col z-50">
-      <div className="p-5 border-b border-white/10">
+    <aside
+      className={cn(
+        "fixed left-0 top-0 h-screen w-56 bg-gray-project-100 flex flex-col z-50 transition-transform duration-300",
+        isOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0",
+      )}
+    >
+      <div className="p-5 border-b border-white/10 flex items-center justify-between">
         <Image src="/Logo.webp" alt="Madlen" width={120} height={44} className="brightness-0 invert" />
+        <button
+          onClick={onClose}
+          className="md:hidden text-white/60 hover:text-white p-1 text-lg leading-none"
+          aria-label="Закрити меню"
+        >
+          ✕
+        </button>
       </div>
 
       <nav className="flex-1 py-4 overflow-y-auto">
@@ -37,6 +54,7 @@ export function AdminSidebar() {
             <Link
               key={item.href}
               href={item.href}
+              onClick={onClose}
               className={cn(
                 "flex items-center gap-3 px-5 py-3 text-sm transition-colors",
                 isActive

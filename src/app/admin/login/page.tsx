@@ -27,6 +27,7 @@ export default function AdminLoginPage() {
     setLoading(false);
 
     if (res.ok) {
+      sessionStorage.setItem("adminJustLoggedIn", "1");
       router.push("/admin");
     } else {
       const data = await res.json();
