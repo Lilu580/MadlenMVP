@@ -10,6 +10,7 @@ const navItems = [
   { href: "/admin/products", label: "Товари", icon: "📦" },
   { href: "/admin/categories", label: "Категорії", icon: "🗂️" },
   { href: "/admin/orders", label: "Замовлення", icon: "📋" },
+  { href: "/admin/settings", label: "Налаштування", icon: "⚙️" },
 ];
 
 interface Props {

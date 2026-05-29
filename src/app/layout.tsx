@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { HeaderMainSearch } from "@/components/layout/HeaderMainSearch";
 import { Providers } from "@/components/providers";
 import { headers } from "next/headers";
+import { getSettings } from "@/lib/settings";
 
 const garamond = EB_Garamond({
   subsets: ["cyrillic", "latin"],
@@ -14,13 +15,21 @@ const garamond = EB_Garamond({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "Madlen - Your Fashion Destination",
-  description:
-    "Discover the latest trends in fashion at Madlen. Shop our curated collection of clothing and accessories.",
-  keywords: ["fashion", "clothing", "accessories", "online shopping"],
-  authors: [{ name: "Madlen" }],
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const s = await getSettings();
+  const indexing = s.seo_indexing === "true";
+  return {
+    title: s.seo_title,
+    description: s.seo_description,
+    keywords: s.seo_keywords ? s.seo_keywords.split(",").map((k) => k.trim()) : [],
+    robots: indexing ? "index, follow" : "noindex, nofollow",
+    openGraph: {
+      title: s.seo_title,
+      description: s.seo_description,
+      ...(s.seo_og_image ? { images: [s.seo_og_image] } : {}),
+    },
+  };
+}
 
 export const viewport = {
   width: "device-width",

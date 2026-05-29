@@ -98,3 +98,9 @@ enum OrderStatus {
   DELIVERED
   CANCELLED
 }
+
+model SiteSettings {
+  key       String   @id
+  value     String
+  updatedAt DateTime @updatedAt
+}
