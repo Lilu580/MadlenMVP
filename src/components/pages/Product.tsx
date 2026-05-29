@@ -61,7 +61,6 @@ function ProductInitial() {
     const p = new URLSearchParams(searchParams?.toString());
     p.set("color", selectedColor.color);
     router.replace(`${pathname}?${p.toString()}`);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedColor]);
 
   const handleChangeColor = (value: TProductColor) => {

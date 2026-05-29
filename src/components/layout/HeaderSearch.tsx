@@ -55,7 +55,6 @@ const HeaderSearchInitial = ({ setProducts, setLoading, isOpen, setIsOpen }: Pro
   useEffect(() => {
     const q = searchParams?.get("search");
     if (q?.trim()) handleSearch(q);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

@@ -136,7 +136,7 @@ export function Checkout() {
             </section>
 
             <section className="gap-5 flex flex-col w-full">
-              <h4 className="header-4 text-gray-project-100">Додаткова інформація (необов'язково)</h4>
+              <h4 className="header-4 text-gray-project-100">Додаткова інформація (необов&apos;язково)</h4>
               <WrapInput title="Примітки до замовлення" error={formik.errors.additionalInfo}>
                 <Textarea value={formik.values.additionalInfo} name="additionalInfo" autoComplete="additionalInfo" onChange={formik.handleChange} onBlur={formik.handleBlur} maxLength={1000} placeholder="Примітки щодо вашого замовлення" />
               </WrapInput>

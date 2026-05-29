@@ -67,14 +67,12 @@ function CatalogInitial() {
   // On mount — load immediately
   useEffect(() => {
     load(1, sort);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // On page change — load immediately
   useEffect(() => {
     if (isFirstRender.current) { isFirstRender.current = false; return; }
     load(page, sort);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 
   // On filter/sort change — debounce + sync URL
@@ -90,7 +88,6 @@ function CatalogInitial() {
       setPage(1);
       load(1, sort);
     }, 400);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [price, material, sort]);
 
   return (
